@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>ed84c544-2f3a-41bd-b035-80ed0b6539d4</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT        FilmName, FilmReleaseDate, FilmRunTimeMinutes
+FROM            tblFilm</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FilmName">
+          <DataField>FilmName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FilmReleaseDate">
+          <DataField>FilmReleaseDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="FilmRunTimeMinutes">
+          <DataField>FilmRunTimeMinutes</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="FilmbyDay">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>Monday</Value>
+            <Label>Monday</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Tuesday</Value>
+            <Label>Tuesday</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Wednesday</Value>
+            <Label>Wednesday</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Thursday</Value>
+            <Label>Thursday</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Friday</Value>
+            <Label>Friday</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="MonthDay">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>Jan</Value>
+            <Label>Jan</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Feb</Value>
+            <Label>Feb</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>March</Value>
+            <Label>March</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>d84de249-96db-40fd-b60b-9260e92b39ec</rd:ReportID>
+</Report>

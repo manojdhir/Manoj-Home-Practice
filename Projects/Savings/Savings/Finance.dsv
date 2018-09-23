@@ -1,0 +1,91 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="93034469-0717-484e-ad4c-e26099ed3065" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Finance</ID>
+  <Name>Finance</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Finance</DataSourceID>
+  <Schema>
+    <xs:schema id="Finance" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Finance" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="b94e22ea-ca63-44c9-8f44-5ce76002570f">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo__x0027_Savings_x0020__x0024__x0027_" msprop:design-time-name="0ada6001-dfca-42b9-a8dc-cd8a8f6fdd75" msprop:DbTableName="'Savings $'" msprop:FriendlyName="'Savings $'" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Type_x0020_of_x0020_Policy_x0020_" msprop:design-time-name="b825f071-8402-4b51-bb0f-ab0ccc96a69b" msprop:DbColumnName="Type of Policy " msprop:FriendlyName="Type of Policy " minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Policy_x0020_Name" msprop:design-time-name="8217b4b7-4c94-4f2c-ad30-fa4a07355069" msprop:DbColumnName="Policy Name" msprop:FriendlyName="Policy Name" type="xs:double" minOccurs="0" />
+                  <xs:element name="Person_x0020_Name" msprop:design-time-name="61946730-3206-4599-b009-55a8110e2f52" msprop:DbColumnName="Person Name" msprop:FriendlyName="Person Name" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Date_x0020_Of_x0020_Creation" msprop:design-time-name="3162d010-c9df-463c-9a83-f3cf8a236df5" msprop:DbColumnName="Date Of Creation" msprop:FriendlyName="Date Of Creation" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Date_x0020_of_x0020_Maturity" msprop:design-time-name="fb343888-3a58-4c0a-a458-e4d59d3ce2aa" msprop:DbColumnName="Date of Maturity" msprop:FriendlyName="Date of Maturity" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Amount" msprop:design-time-name="331f1a50-a03b-4ebf-b932-579a7ad75944" msprop:DbColumnName="Amount" msprop:FriendlyName="Amount" type="xs:double" minOccurs="0" />
+                  <xs:element name="Maturity_x0020_Amount" msprop:design-time-name="3852af4a-fd71-46f9-8798-dac60e0249ad" msprop:DbColumnName="Maturity Amount" msprop:FriendlyName="Maturity Amount" type="xs:double" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <Finance xmlns="" />
+  </Schema>
+</DataSourceView>

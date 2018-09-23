@@ -1,0 +1,1311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>3.29166in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>4.12501in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.64in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Image Name="LogoImage">
+                      <Source>Embedded</Source>
+                      <Value>ID2428_logo</Value>
+                      <Sizing>FitProportional</Sizing>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Image>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.99718in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>d</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>= format(Today(),"MMMMMMMMM dd, yyyy")</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>d</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>d</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=
+trim(Code.FieldThenNewLine(First(Fields!hospname.Value, "requestor")) &amp;
+Code.FieldThenNewLine(First(Fields!hospadd1.Value, "requestor")) &amp; 
+Code.FieldThenNewLine(First(Fields!hospadd2.Value, "requestor")) &amp;
+First(Fields!hospcity.Value, "requestor")  &amp; " " &amp; 
+First(Fields!hospst.Value, "requestor") &amp; "  " &amp; 
+First(Fields!hospzip.Value, "requestor"))</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Parameters!additionaladdress.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Parameters!salutationText.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>d</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.31511in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>We are unable to process your request. Please contact the Medical Staff Office at </Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!FACPHONE.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>.</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>=Iif(Fields!verificationletters_yn.Value = "N", False, True)</Hidden>
+                      </Visibility>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.80469in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox71">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>To :</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value xml:space="preserve">
+</Value>
+                              <Style>
+                                <FontFamily />
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>The above referenced practitioner is/was a member in good standing of the Medical Staff or Allied Health Professional Staff of Hampshire Memorial Hospital. This individual is/was affiliated with  as follows:</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox71</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>=Iif(Fields!verificationletters_yn.Value = "N", True, False)</Hidden>
+                      </Visibility>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>1.24913in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox30">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>              Name:</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>               Initial Appointment Date:</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>               Medical Staff Category/Status:</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>               Specialty:</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>               Department:</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>              Termination Date:</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve"> </Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve">             </Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox30</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>=Iif(Fields!verificationletters_yn.Value = "N", True, False)</Hidden>
+                      </Visibility>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!psfullname.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!privinitprivdate.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>d</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>d</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!privstatus.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!spec1.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!dept1.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!term_date.Value</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>d</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>=Iif(Fields!verificationletters_yn.Value = "N", True, False)</Hidden>
+                      </Visibility>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.60677in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox72">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Membership on the Medical Staff of Valley Health Hampshire Memorial Hospital is contingent upon compliance with the Medical Staff Bylaws, Rules and Regulations; satisfactory participation in the duties and responsibilities of the Medical Staff or Allied Health Staff as assigned; current clinical competence; a health status that does not affect his/her performance of responsibilities; and the maintenance of accepted ethical standards. All members are evaluated utilizing on-going, criteria-based medical staff monitoring activities.</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>It is not our policy to provide a copy of the practitioner’s privileges. Each member receives a copy of his/her approved, delineated clinical privileges at the time of appointment and each subsequent reappointment. If you require a copy, please contact the practitioner directly.</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox72</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>=Iif(Fields!verificationletters_yn.Value = "N", True, False)</Hidden>
+                      </Visibility>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.23177in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox138">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Sincerely,</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox138</rd:DefaultName>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.36718in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Cindy Combs</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Executive Secretary/Credentialing</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Hampshire Memorial Hospital, Medical Affairs</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Email:  </Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>ccombs2@valleyhealthlink.com</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>Underline</TextDecoration>
+                                <Color>Blue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox99">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                                <Color>#000000</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox99</rd:DefaultName>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>providerpracticereport</DataSetName>
+        <Top>0.14583in</Top>
+        <Height>5.21183in</Height>
+        <Width>7.41667in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>5.35766in</Height>
+    <Style>
+      <Border />
+    </Style>
+  </Body>
+  <Width>7.41667in</Width>
+  <Page>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="UCENT_production">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=khan;Initial Catalog=UCENT</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>50cec4a2-75ed-4c32-b0bd-98da4f02d353</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="providerpracticereport">
+      <Query>
+        <DataSourceName>UCENT_production</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@docid">
+            <Value>=Parameters!docIdList.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@facilityid">
+            <Value>=right(replace(replace(Globals!ReportFolder,"/FSR/", ""),"/Reportal/OnLineVerifications", ""), 4)</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>RPT_VerificationLettersBase</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="facname">
+          <DataField>facname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="todate">
+          <Value>=Iif(Fields!process_status.Value = "archived", Fields!term_date.Value, Iif(Fields!process_status.Value = "Archived", Fields!term_date.Value, "Present"))</Value>
+        </Field>
+        <Field Name="FACPHONE">
+          <DataField>FACPHONE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="currentstatus">
+          <Value>=Iif(Fields!process_status.Value = "archived", "Inactive", iif(Fields!process_status.Value = "Archived", "Inactive", "Active"))</Value>
+        </Field>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="docid">
+          <DataField>docid</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pslnam">
+          <DataField>pslnam</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psfnam">
+          <DataField>psfnam</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psmi">
+          <DataField>psmi</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psdegree">
+          <DataField>psdegree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psfullname">
+          <DataField>psfullname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="spec1">
+          <DataField>spec1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="privstatus">
+          <DataField>privstatus</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="privinitprivdate">
+          <DataField>privinitprivdate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="privreappdate">
+          <DataField>privreappdate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="privstatuslimit">
+          <DataField>privstatuslimit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="term_date">
+          <DataField>term_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="term_reason">
+          <DataField>term_reason</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="process_status">
+          <DataField>process_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CurrentStatus">
+          <DataField>CurrentStatus</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dept1">
+          <DataField>dept1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="spec2">
+          <DataField>spec2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="privlastreappdate">
+          <DataField>privlastreappdate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="PrivReAppDate">
+          <DataField>PrivReAppDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="verificationletters_yn">
+          <DataField>verificationletters_yn</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PresentOrTermDate">
+          <DataField>PresentOrTermDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LOGO">
+          <DataField>LOGO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TempBeginDate">
+          <DataField>TempBeginDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TempEndDate">
+          <DataField>TempEndDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="requestor">
+      <Query>
+        <DataSourceName>UCENT_production</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@hospitalId">
+            <Value>=Parameters!hospitalId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select distinct hospid, hospname, hospadd1, hospadd2, hospcity, hospst, hospzip
+from	ucent.dbo.hospital_master
+where hospid = (@hospitalId)
+and hospid &lt;&gt;999999
+order by hospname</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="hospid">
+          <DataField>hospid</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hospname">
+          <DataField>hospname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hospadd1">
+          <DataField>hospadd1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hospadd2">
+          <DataField>hospadd2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hospcity">
+          <DataField>hospcity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hospst">
+          <DataField>hospst</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hospzip">
+          <DataField>hospzip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="docIdList">
+      <DataType>String</DataType>
+      <Prompt>doc Id List</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="hospitalId">
+      <DataType>String</DataType>
+      <Prompt>hospital Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="salutationText">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>salutationText</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="additionaladdress">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>additionaladdress</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>function NewLine()
+	return chr(13) &amp; chr(10)
+end function
+
+function ColumnNumber()
+	return 1
+end function
+
+function FieldThenNewLine(field)
+    if field = "" then
+        return ""
+    else
+        return field &amp; chr(13) &amp; chr(10)
+    end if
+end function
+
+</Code>
+  <EmbeddedImages>
+    <EmbeddedImage Name="ID2428_logo">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>/9j/4AAQSkZJRgABAQEA3ADcAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCABDAVUDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDM/ae8Q/Eb4RfG/wAT6DD458UQaa1wbywC6vcqn2aX50Vfn6Jkx59UNRfs/wD7YXjf4beObB9f8San4i8NXM6R39rqly9yUjJwZI2ckoyj5sAgNjB7EfQv/BTT4YfbdA8N+O7aIGWxkOmXrqvJifLREn0Vw4+sor89M1+tZdDD
+5lgI88E3az0W6/q5+Q5g6+WY+Xs5NJO616P+rH6z/tPfHbX/AAnqPhvwB8PoUuvH3ik4tZXUOlnASQZiCCD0Y5IIAR2I4APhrab4l1r4o2/wt8G+O/Emu+LbRluvE3ja81m7Nvpu0gvDb26SCM4JC7XDcsV4wxXrfBHxa0SH9ljSvjJdWi3vjLwlo03hyGVhv2zs8UUZce+ImJyMCR/71ec2dxefs8fslLeq80/xN+Kk2Vk3F7nyZOjdSS3lvuz94SXIz0r5XD0fZRdKMfeT5desurf92K1tt3PqMRW9tNVZyvFrm06R6Jf3pPS50WiahceOfHOtad4X8b+KdL+HXg6GSTxL44u/EF1Pc6gyq2+OEGQxoOGwyICAu4HlQ3efs5aLrPx3uNQ8Z6lqviXRfh4sz22gaEuvXoluQh2tczzed5jHIxtD7dwbjjLeY/E3wXceCPh98Mv2bfDjKviTxTNHf+IrmJd2AWyxb5fmUFGOcghLUA8NX23Bolr8O/hu2maHGLO10bTGitFwG2COM7Sc9TwCc9T1rlx1WFKknT3ls+vKvtesnt2Wx14GhKtV/ebR3/xP7PpFb93udFY2i2FpBbRtI8cSBFaWRpHIAx8zMSzH3JJPerFfjZ8Lf+Cgfx88U/E3who1/wCOFnstR1izs54ho9iu+OSdEYZEIIyGPIOa+9/29P2oZ/2bfhRF/YFxFF421yb7PpZkjEggRcGa4KN8rbQVUA5G6RcggMK+ZPq7W0Ppyivz4/4J+fGv49/tG+Nr/VvFfi83HgPREKXMY0mzi+2XTr8kIdIQwCg+YxU5GEH8VfoMCMdqAFopruEUsSABySa/JHVf29fjf8Sf2hJ/DPgHxjFp+h6v4g/szRohpFpMscDzeXE7M8TOflw7EnjnoKAP1wor8tP2xv29/ih4E/aC8QeFPh94oi07Q9FWGwYJYWtyZ7kIDMxMkTEMHYxlQcfu+gJNfpB8KYvEUPw28Mjxde/2h4oO
+nQPqdx5SRbrkoDIAqKqgBiQMAcCgdrHV0UmR60ZoELRRTW5BoAdRX49fFD/gox8ZtS+LniKy8C+K47bw4+qy2uj2kWk2kpeASbIjmSJmJcANyerdhwP018eePL74Kfs7ap4p8SX8Gpa5oWhedcXM4WFLy+EQCjCAKvmTFVAUAfOABQOx6hRX5Mfsv/tlftB/Gv48+DfB8/jhZdOvL0SXyro1iubWMGWYZWEFcojKCCCCwr9ZgeBQGwtFJketFAhaKTI9aq6rqlroum3V/ezx21naxPPPPK21I41BZmY9gACc0AW6K/JX4Tftx/Hn43/tDaD4Y0jxUNN0bXNbwtgmlWTm1sd5kdQ7QliUhVuSSTt5r6D/AGyf+ChGr/s6fFeLwZ4X0XSNceCwiudQmv3l3QzSFisWEYY/d+W/fPmD8Qdj7noryH4XfGHU9R/Zqsfid46sLfSZ20abXbu008MVjtlV5U2hiSWMQU/U18Bfssftj/H746/tC+FfClz4zQ6PdXhudQhi0iyAW0iBkkTd5O5QyrsDZzlhznmgLH6t0U1cBRinUCCiiigAooooAKKKKACiiigAooooAKKKKAOI+NXw9i+Kvws8S+FZQpbUbN0hZ+iTD5om/B1U/hX4lXVrLZXU1vPGYp4XMckbDBVgcEH6HNfvZX5Ifty/DYfDv9oLWpIY9lhrwXV4MHPzSEiUex81ZDj0YV9zwviuSpPDSej1Xqt/wPheKMLzU4YldNH8z0D/AIJ/arpHjGTxl8KfE8C32h65bpqEdrIxVWkhdd4GCDkjy24/55V6N4M1BP2hv2mNd+Jmtxvp/wAN/hvG8Vl9tjaNBLFuO9lYAhgQ0rDAK7YlYV8XfBP4gN8LPix4W8UhmWLTr1HuNq7iYGykygepjZwPrX3N+1Vc6prWvaP8CvhxozWDeLJW1vVdQiH7qSOWZ3kZmBJ271ZnPoEReCBXdmVB08bLl09ot+kbfG/Vqx52XV1UwcebX2b2
+6yf2V6J3LX7HekXXxl+Lvjv456zbukV1cNpmhxTAfu4gAGYcdVjEce5TyWlB5r6x8Z/8ifrv/XhP/wCi2qj8NPAOm/DDwLo3hfSI9ljplusKsVAaRuryNj+JmLMfdjV7xn/yJ+u/9eE//otq+FxmIWJrOcdIrRLslsfeYHDvD0VGXxPV+r3PwD+AEtvb/Hf4cTXc0dvax+JNNeWaVgqRoLqMszE8AAZJJ6Yr0b9oT4l67+2d+00f+Eegmvor26TRvD1kPl22wYhGb+7uJeVyfuhmycLXz77dDX6I/sH/AAYm+D/wR8c/tEavpaXWrWejXs3hy0uk6RxROXn9QZGXywRg7A/USVxHpG/8aPgP8f8AwB4L0H4WfBrR7jTPAmk2aNqPiCy1ezsLjWr6RQ08rs06yJGGO0IcdCCWULj5q/aH+Aet/s3+G/D2t3Pxgs9b8W6hMqXeiaXfN9qs8ozGTeJCzoGXaWKrywxmuL8HeIov2kfjZYv8aPiPe6ZpN00slxq90xkEXBYRRKQUiVm4GFCr6dBWP+0RpPwx8O+Pm0r4UanqWueG7S3RJtW1JgWurnkuY8In7tQVUEqCSGOSCpoBI+0/gZ+094y0/wD4J9/FDxL4o1u61a/0+6k0LRNQu7jN2HniiRf3jcuYmm8wZJbCkdFGPCf+CdugWlj8VPEfxL1iJm0P4e6FdazMQQN0xjZETnuV84j3UVe/aqU/CL9mP4H/AAjA8rUbm2fxhrULx4cTT7lgBPqoedCP+ma0sIHwX/4J2TScQ638VNeCDs/9nWp/l5kZ+onoA8x/Z5sB8X/2mtO1rxXcq1gl/ceKfEF5Mv7sQwbrq4Z8dmK7f+BivUfib+1l8Uf2wvivF4U8MeJB4D8LXc7x2ltJqH2C3SFQSZby4By2QuSvIyQqqSeav7MHwk1TUP2VP2gfH2n28kl0NLTRbRozktCrx3F+MdeIhFz6Fq8v/Zj8OfBzxP4o1W0+MniDVvDWlizE
+the6Zkq0ocBo3xDKeVOQcAfKeckAgzpPiLD8QP2OfiJpjeG/izb65NcQC8S+8Pao1xbthiGjniJKnkdGBBBB9QN79rj4/eLfF3irwR4v0rxHrOhJ4m8J2WpXNjp9/PBbx3KyT283loH4XfbnHUkdzW1ofg79kvxZ43tfCnhy3+L/AIh1G9vBZ2bWIsQlyxbAdd6qyr3y6rgZJAxWh/wUz+E+nfCbxN8LNL0VZV0ay8LLpNsZ2DSN9nnkYs5AALHzwSQAMk8CgR6x+03+1FqHw+/Ys+EfhTSdbuo/Gvirw7YXV5fpcN9qgtViQvJ5gbcHlkG3dzlRL3rlvgYPGPwp/ZK+IXxv8Y+JtcvL7VdNfSfC1nf6nM4XzmEP2oKzH5t7ZQ4ztiZujg14P+zT8Idf/bE+Nmg6Rq087aBolhaw6jdxjaLXT7aNY44UPRXk2hRjnLO+Dtavp7/grL48s/D/AIc+Hnws0ZIrOziU6nLZ26hFhhjUwWyADovMwA/2BQFuh+eHhHxPe+CvFOkeIdN8n+0dLu4722M8YkQSxsHQsh4OCAcGvZ/i1+3J8WvjX4Hu/CPifWbObQ7x43nhtbCOFpPLcOoLKM43Kpx6qK+tP+CUvwK0TWvAXi/xr4j0LT9YW+vo9NsV1OySYRpCm+R0LgjDNMq5HeE18yf8FDPEuh6x+0xrek+HdM07StK8PQxaUI9NtkgR5lBeZmCAAsJJGTPpGKB3uyv+yx8VIf2a/C3jH4oR2cV94muUHhzw5b3AzEZnxNdTt0ysSLACAckzqOASRueA/CnxR/bJj1nxP4n+MumaHb28pihTxJrX2ZZZtobbDbLgRxjIy4UDJ4DENjl/2i/hLqXwt+DfwMNxbtHa6zo1zq0kgyVa6nlWQg+jC3NopH+zXRfDrwp+ygfg1p2u+NfFXjNPG4QrfaBo4Qu0gkKgxF7fy9pXa3zS+2c8UCOq/YZ/ag8dfDr4+aJ4A1nxBdeIPC2r6h/Y8tpP
+cm6SCYkpHLbuSdq79ucHaVYnBO0j6F/bW8PftQfE/wAb3WkeB9LutB+HNpsjiurTXrOyfUDgF5ZSZ1kC5JUIcDC5IyePB/AemfA/w14P8XfF34W6L8RLjWfAdvHc2lz4pNl/ZyXs8i29vkRgs7o0omCjA/dDJGQD4l8Jf7B/aE+L88/xw+Jl/o2nvay3DateSNLLPIGXbAjMGWMEM7DjaAm0AZFAeZ0H7Rvwc1f9l688NvZ/GCHxJ4i1BZXvLbRbuSObTnQJgsyylirFm2swQnYcDrj6Nj/aR8YN/wAEydc1XxZqlxf63rWoy+FtM1Gcb5bm2cDzTIx5JES3abuvyjvk18R/Gqz8BW3xIvNO+F82o6j4Vt9lva3+pNunvpP45cBF2qWJVRtBwoJ5OK96/bqZPhr4U+EHwVt2RT4U0Jb/AFRY2yDf3J3SBh6gqzD2moAz/wBh/wCBfin4o6V8Tdc8K6pZ6DqunaSmn2er388kEdq9xIDNIrorMGFvFMmR080HPFeF+EPCniT46fFbSfDsGoy6v4g1y8js01C/lklyOF8x3IZ9ioMngkKvTjFffPhOxuf2cP8AgltrWsRQyQa54yjaZiVGUS9ZIEbI5x9mAcf7TV8nfsSfFzwh8D/jla+LvF+narqSW1lNBp0ekRJLKLuXbGCVd0BHltKvXOWHFA77n0V8cPAviz9kH9jfxD4V8XeLF8R+KPG+rW+nW3kahcTR2mnQIJGEYlC45UowAxiVetfOX7MXwh+Nnjmy8Uav8JLW4tkjtTp97q0N3HaPtbbIbeKV2Uhm2KTsIIGASA3Prv8AwVX+KLeMfjrpXhWF2+yeGNNQSQEg7Lq4Alk6EjPl+QOvUGvorSdn7J3/AATKe6Upb+INc0ozBlyjtdahgIfXfHC65/64mgXQ+E/2S/ij430P9ovwJFo3iHUt2p65aWd5bPdO8V1DJMqyrIpJDDaWOSDg4I5ANfu2vCivx9/4JXfC9vGn7Q9x
+4nnhd9P8Kae9wJMAoLqcGKJW+qGdgfWOv2DoJe4UUUUCCiiigAooooAKKKKACiiigAooooAK4P4o/BDwT8aLOxt/GOgxawti5ktnMskMkRIwwEkbK208ZXOCQpIyBjvKKuE5U5KcHZrqjOpThVi4TV0+jPn/AP4YO+B4/wCZMb/wbXv/AMer2fQfCOk+GrLTrXT7JIk0+0jsLaRyZJUgQALH5jEsR8o6k5IycmtmitauIrVlarNy9W2Y0sLQoO9KCj6IKhvbOHULOe1uE8yCeNopEyRuVhgjI56GpqjnnjtYZJppFihjUs8jnCqB1JPYVznUfNv/AA7g/Z3I/wCSfH6/23qP/wAkV9AQeFNHtvC6eG49MtRoKWgsF00xK0H2cJs8rYRgpt+XB4xxWhbXcF7bpPbzRzwOMrJEwZW+hHWo7PU7PUfM+yXUNz5TFH8mQPsYdQcdD7UAfMp/4JpfAI641+fCt59nPP8AZo1a5Fvn14ff15xvx2xjit7X/wDgn78AfEurz6le/D2BLmbaGWz1C8tYgFUKoWKKZUUAADCqK+haM0DueK/E39jT4P8Axj8Tt4h8YeE31jVzBHbee2q3sQEaDCqEjmVQB7Dkkk8k1L42/Y8+EXxE0HwvoviDwkb7SvDNobHSLVNSu4UtYSFBH7uVdxOxcs2WOOSa9lpaBHHfDP4ReEfg94Pj8LeD9Fi0fQkkkl+yrI8u53OXZnkZmcnp8xPAA6AAeJ+M/wDgnD8CvGOqyagfC8+iTyytLKmj3skELE9QIslEHsgUV9O0UAfMviH4NfDf9jL4O+NfGnw+8HQ2niKz0uQW164kvrp52AjiAaQsyoZChZUwpwSRxX5h/EDxV8dP2xvFOjRavo+q+J7+yQ29nBY6R5MUIcrvZiqBVyVBLOcDHUCv3Ovby1sIGnu547eBMbpJnCqOcDJPA5xUqNHKodCGUjIZTkEetA0zwb9jP9me1/Zo+EVtpNwkMvirUmF5rV5D
+zvmx8sSt3SNTtHYnc2BuIrV+Kf7Hfwj+NfitvEnjTwq+t600KW/2ltUvIQI0ztUJHMqgDJ6DqSe9eupqdm961mt1C14q7zbhx5gX1K9ccjn3q1QI5j4bfDXw58IvBmn+FPCenf2VoFh5ht7Tz5Jtm+RpH+eRmc5d2PJPXA4AFePa7/wT++AviXXNQ1jU/A0l5qV/cSXdzcPrWobpZXYs7HE+OSSePWvoiigDjviN8IfB3xb8Jnwz4t8P2ms6JlWS1lUp5LKCFaNlIaNgCQGQg4JHQmvBLT/gmP8AAS31WS7k8O6ldQMSRYy6vcCFfYFWD4+rGvp+LW9Onvnso762kvEzut0lUyLjrlc5FS3moWunW7T3dxFawLjMszhFGemSeKB6nMaX8IvBmi+AZfBNh4a0608KTQNbS6TDAFhkRhhtwH3iepY5YnnOea8N0v8A4Jr/AAD0zXjqX/CKXN1GGDx6fc6ncSW0ZBBHy79zDjo7MD3Br6btLyC/gSe2mjuIXGVkiYMrD2I4NTUCPnyX9gP4Cy+JX14eAYodTa6+277fUryKNZd+/KxJMEUBuihQo4AGBitD4h/sSfBj4r+MNQ8U+K/B76tr1+UNxdtq99Hv2oqKAiTKqgKqjAAHFe5ZozQBy+vfC/wr4n+H0ngfVNEtrzwm9olidLdSIhCgARVwQV27VKkEFSoIIIBrx/w1/wAE/PgN4S8RWOuab4HMeo2F1FeWry6reyrFLGwZDtaYqwyAcMCDjkV9E0UAeBeM/wBhH4H/ABC8U6n4j8QeC31LWtTna4u7p9Yv08xz1O1ZwoHsAABwBXoHxb+Bngn46eHbTQvG+jNrOk2lyLuG1W8ntlWUKyhswuhOFdhgkjmu8JwKrafqtnqsJmsruG8iDbTJBIHUH0yO/I/OgDg/g7+z18PvgDaalbeAvDyaDFqUiS3eLma4aZlBC5aV3bABOADgZPqa9GpCcVXt9StLu5mt4bmGaeDHmxI4LR56
+bgOR+NAFmiqt/qlnpUQlvbqG0jLbA88gQFsZxk9+DU09xFbQPPNIsUKKXeSQ7VUDqST0FAElFQWl7b39uk9tPHcQOMrJEwZW+hHBqbNAC0UUUAFFJmq8ep2kt7JZpdQvdxrue3VwZFHHJXqByPzoAs0UgOelLQAUVnX/AIi0rSphDe6nZ2cpXcI7idUYj1wT04NFAGjRRRQAUUUUAFeaftNf8m3fFft/xSeq/wDpHLXpdeeftF6ddav+z78TrCxtZr2+uvC+pwQW1vGZJJpGtJVVEUAlmJIAA5JNAHyJ+yf+3X8GfhX+zt4K8K+I/EtxY63pto8VzbpplzKEYzOwG5UIPDDoam/YY+KVj4Y+EPx48d2dhf6/Yp4uu761s9Mt3kubsSKhiREAzli69Rxkk4wa+g/2KPDl74c/ZZ+H+nazpdxpmpW9lIs9pfW7QzRnz5DhkYBgcEdRXzF8P/C/xV8G/s2/tJnwfouu6P4uu/F9xc6Z5do8N1NbNLEJZLYMAWJi8zayc/3DuxQM9P1b9sv4mfDnTPDviz4j/CCLwx4D1u7gthdw60s19YiXlGmg2Ak7QSVwpGCDg8V0/jn9rDxXp37QGufCPwd8Of8AhKtes9Niv4Lt9TW2gAZUZmm3J8iLvAyCxZiowM5Hxd+0H4d0b4hfCTR7rwX8M/itrPi3TJ7ebWPEXi2O+uJEjAKyR4kkZWdnZCREgACk8Cvq74S6bquuft8+LvGo8P6zYeGtX8C2TW17qGnyQIXb7G/lMWGBKoB3JnIKsO1AaEPgn9sn4qfEv/hJvDvhr4Nwz+PfCl09tr1rda7FHZW2CRGEcjMjyMkoAHygR53kMKluv+CgUUX7LNr8XovCDSXK6yNEvtFkvtghm5LMsvlncNu042j7xHbJ0f2S/CetaD+0L+0pqGqaLqGnWepa/by2F1d2skUV3GGuctEzABwNy8qT1HrXx5408J614O/4Jya3Y69o2oaHdyfEIzrbajav
+byNGYhtcK4BKnBwcYOKAPrjxH+2N8RvhtbaT4t8ffByfw58NNTnihOpR6ok9/p6SH93Jc26r8uRyV42n5Sd2Aej+I37VPihPjTJ8Lfhh4KtPF/iK20pNYu7rUtVWyto4X2lQnBMmQ8ZyD/F0OCR5H+0j8YfE/wC0V8KT8I9C+FXi7TfHOvT2tvqQ1LTmjsNNEUySSP8AaeVkj3R4VxgFSTwcAv8A2ivCXhe18f6ToHxQ+DuteJPCdhoVvZ6P478JRXM18skaopiuBCRjDeYVDbuoIByxAMtftP8Axa1/4rfsOfE9/FXgPV/h/wCINLu7SzudP1GNmimIvYP3tvMVVZozg/MuRx1IIJ0pP2w/Hfwn8J+A9f8AFHwobTPhfqv2PTodXOqxvforxgxzyW6g7AyKWCE5GNpYMQD47ceDPifrn7Ifxy0s6f441jwlc3+nDwdpviiCSfWWhW6QzfuwC4TaIyBjb8rEAfMT7l+3B4O17xN+yN4U0vR9D1LVdUivtJaSysbOSaZFWMhyY1BYAHrkcd6BHVab4t8Lw/t0eKtLg8GrH4utvBYu5fFH9pSkz2wlgxbfZv8AVryVO8fN8uO9cp8JP26/Enxb0i08U23wzl0j4f6bFczeKfElzqSNFp3lJI+yBCqtOQixElRwZNuOATe0/wAJ64n/AAUH8aa62i6iuhz/AA++yRambST7NJP51ufKWXG0vgE7Qc8GsD9nX4Ja74r/AOCcl38P77Tbrw74i1O11ONbbUoHtZFmNzI0XmKwDBW2oMkfdNAGlJ+2p8R7XwbF8Trr4KXUHwkkZZRfnVYzqi2bOFW8Ntj7hyCFz0Ibds+evrLw7r9j4s8PabrWl3C3em6jbR3dtcJ0kidQyMPqCDX5p6Donhez+FOmeC9U+AnxK1r4p29rFpVzpEupatFpd1IoEbTGZbgRJAwG7CrtGcD5Rur9F/hp4Yi8E/Drw5oMGnw6TFp2nw2wsLaeSeO32oAY0kkJ
+d1U5AZuSBQB+X3iTWb34Xfty/EL4sRSsmj+F/GFhp+sKASFs76KeOSQ47L5XA/vMte7/APBTbX7zxppXh/4Y6LcgSHTtR8YaqUY/u7SxtZXiDADBWR1kAz/Ei1Y8K/AnU/iT8Rv2wtA1jRbyx07xUbJNLvr22kignlRbho5I3Iw4SQRMdue2etcZ8Cvh78RPGvwZ+OHjfx5oWsReKR4GfwRoWnXtrOt20EFgfMKRuu5/OlMbZGcuZAKB3PR/gp8frX4FfsWfBwwaRN4m8VeIT/ZWh6DbTLE95cPcSDl2yEQZXL4OCy+uR6H4J/ae8X6b8VdA8AfFrwFF4H1PxJHI+h6jYakt7aXToAXgYgDY4BHcgkqMDcCfmzxD8CfE+ofsu/s5eIJ/CWt6uPA887a74Xs1ntdTe0nmHmNGqskodREMBSG+cHoDXafDPwl4D+I/xt8GTeDfgx4xi0zQ5TqN14n8a6pqsEemzJho1t4prh1lkLKAy4x0yCAaBHV2H7avxF8c2HjmbwN8IP7WHg7U7u11K7vNYWK3eKHoISUDSTMFkZkAwgCZLGQAZ93+3l471P4Rp8VvDvwg+0/D6zRP7SvL/WY4py+8Ry+RGqksiSHbvIycE7Rg1t/skeEdd0D4TfHa11TRdQ066v8AxjrlxZw3do8T3ETwRBHjDAF1YggEZBwcVxHgPwF4mtf+CWWo+G5vDmqw+JWsL9V0iSxlW8LG/kZQISu/JUgjjkc0AezfE39r2Pw9pnw6s/BXhe68Z+MvH9kmoaLoRnS2KWzRCXzZ3OQgCk+3yPyAuab8Nv2nfE7/ABfsvhh8VPA48EeJ9VtXvNGu7K+W9sdRVAxkRXAGx1CsdpycDnblN3iepeDvF3wh1j9nH4xQeEdZ8RadoXgiz8PeING0+0aTULEG1wJBCcNlWlYMMDGzBxnI6iHU9b/at/an+GfijS/B+v8AhzwD8P0vLubV/EFk1jJfXU6KoiiRuWAMUZJ9N+cf
+LuANj4a/toeNvjP4um0Pwf8ACaa/ttK8QHTde1WXVI0trKzEwTzVLqhklKiRzGuSAq/e3cc1+zP8fPDXgv8AZO17xh4D+E2o2MEPiCWzh8KaNeXGpzXV0Y4f3hkdWZF2kZ4IUJwCTiu1/wCCfvhLWPCfg34lx63o19o091431C5hS/tXgaaEpCFkUMAWQ4OGHHBxXzF8NvDfxg8AfsN3FpoGjeLdBvj46abWYNLtZbbWP7LMMXmPbhlDjLhfmUdjn5d1AH09YftU/Ejwb8QfBGgfFX4XW3hfT/GV4thp19pmspePb3DYCxyoF55ZQWBAAJIzjFZn7K4/4zG/ah/6+9J/9FzV83/Eay8PSfEb4S+PvAnws+Jh0vQfENpca/r+v2t9d3VztdHRI0mlkdyBHKWKAIGKDqwr6k/Zp8L61o/7WX7SGqX+j39jpmp3WmNY3tzavHDdBY5txicja+MjO0nGaAOT/wCCsTCP9nLQ2JwB4otMn/thc1V+O3/BQP4H+N/gh488O6P4quLjVtV0G9sbSFtLukEk0kDoi7mjAGSwGScV0X/BTnwhrvjX4CaJYeHtE1HXr1PElrM9tplpJcSLGIbgFyqAkKCQCenIr279pHRZ9X/Z5+JVjp1hJeX9z4b1CGC2toTJLLI1s4VFVQSzEkAAcmgD5w+DP7Q9h+z5+xF8IJxpNx4l8S66Tpmi6DZuElvbhriQY3EHaoyoyATllGOeO70f9qvxz4L+InhXwx8YvhvD4LtvFc4tNJ1rTNVS+tluTgLbzbR8jEsBuzgk8AgMV8KX4S+O9G/Zu/Zq8b6X4V1HU9a+HF9Neal4Xa1dL6S3knzIUiYBt4EYwMZ+cMAcV2HxT8Xav+2b44+GHhrwr4H8U6L4f0LxBB4g1rXfEemNYpbrDkCBNxO+QhnGAeu3qMkAHc6l+1t8QPGHxI8eeGfhV8MrXxXb+CLn7JqlxqOtR2cs8oLApDEQepjcBicHb26Vb+Iv7a9x
+8N/gt4K8f6p8OtdsJ9c1mPSb7w9qKPbX1kSJC7IroPO4jygwu7cMlTkDxX416L4J1b4u+Mj8Tfgp4v0bXo7kNoPjP4ew3Mr6jCCfLkYofKE+AmdysexI2jPEfEkfFjRP2VPhBP4zh1DUvF0fxItp9FtPEMn+mvAI5DbRXTOchmk3ffOQrKDjGAD0PpTUf2uviD8MfEXhyT4s/CqPwf4O8Q3iWMGsWWtR3rWEr52LcqqgdBkkEAANjcRiqk3jy2039rL4w2fgr4Yw6x8SLDQLGaXUpNeeAarEwtB5RRwYodiODuHLeVj+KuD/AGkviBrn7XuheHvhR4V+HHjHRL+81a2uNav/ABBpDWtvpUMed+ZCdpbJ4I4IGBksBXofw38Ia3Zf8FCPi7rc2jahBod54asoLbVJbWRbaeQRWgKpKRtYja2QDxtPpQI89/YB+MnjTRvgB4i1XxF4a1LXPDOlNfXsOsW98b6/vblWjxZR22C+cE4Ynbn0612Otftl/FPwB4X0zx744+DCaD8PL2aBJJU1tJNRs45SAkkkBQZJBHyfKRnB215J8C7v4o+AP2UPiZ8MvD3gzxboXxN0uS71C0vX0xkt5omuIEkW2mPDzGMylAmSduUJOK8z+NXh/T/iN8A7EaB8Nviv4i+I1jHbPrPiLxSt/OLfBHnBRJIyMWcgBY4xhcscYNAGX/wVkk3/ALSujup4bwxasD/28XNFaP8AwUN8E+MfjD8WvCXifwr4F8V6npV34SsmDQ6LcO0TGW4by5AqHY4DDKnkZFFBasfrfRRRQZhRRRQAUUUUAJijA9KKKAECgdhSgAUUUAGK+O/+Cqo/4xZ/7jln/wCgyUUUAfYUajy147CnBQOwoooAMAdqMD0oooAMA9qMDGMUUUAG0egoxRRQAYHpRtA7CiigA2j0FG0egoooAMA9qMD0oooAMCjAz0oooAMCjA9KKKADaPQUAAdqKKADAoxRRQAbR6CjaPQUUUAGB6V8
+l/8ABQoY0n4LY/6KLpf8paKKAPrQAelGB6UUUAGB6UYHpRRQAhRT1AP4UUUUAf/Z</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>71f2a910-a399-4c3e-8bd1-c0311b66d781</rd:ReportID>
+</Report>

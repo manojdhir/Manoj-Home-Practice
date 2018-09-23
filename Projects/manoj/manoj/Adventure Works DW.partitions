@@ -1,0 +1,78 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c8e3d7c3-4104-4478-80eb-c459b1027c37" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Adventure Works DW</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Internet Sales</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="77836588-7ba2-43de-83fe-da35a2440ddb">
+          <ID>Fact Internet Sales</ID>
+          <Name>Fact Internet Sales</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="afb41c27-9ff2-432c-8d7c-ce15b126a92b">
+            <DataSourceID>Adventure Works DW</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[OrderDateKey],[dbo].[FactInternetSales].[DueDateKey],[dbo].[FactInternetSales].[ShipDateKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber]
+		FROM [dbo].[FactInternetSales]
+		WHERE Factinternetsales.SalesAmount  &lt; 500</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="272426e4-d86f-471d-aab9-e91d033c346e">
+          <ID>SalesAmount less than 500</ID>
+          <Name>SalesAmount less than 500</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="1f1f0671-ee00-4839-a85c-57af87c102f4">
+            <DataSourceID>Adventure Works DW</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[OrderDateKey],[dbo].[FactInternetSales].[DueDateKey],[dbo].[FactInternetSales].[ShipDateKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber]
+		FROM [dbo].[FactInternetSales]
+		WHERE FactInternetSales.SalesAmount&lt; 500</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="469a1b76-5c2c-456d-8689-6ede5f119829">
+          <ID>SalesAmount Equal to 500</ID>
+          <Name>SalesAmount Equal to 500</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="1a2d83e8-f430-4bbd-aac8-c04966d1fd40">
+            <DataSourceID>Adventure Works DW</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[OrderDateKey],[dbo].[FactInternetSales].[DueDateKey],[dbo].[FactInternetSales].[ShipDateKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber]
+		FROM [dbo].[FactInternetSales]
+		WHERE FactInternetSales.SalesAmount = 500</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="ced284c9-b93d-447f-89a7-433141e767c4">
+          <ID>SalesAmount Greater than 500</ID>
+          <Name>SalesAmount Greater than 500</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="52330b45-8197-4ed7-8488-1d2d6c754292">
+            <DataSourceID>Adventure Works DW</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[OrderDateKey],[dbo].[FactInternetSales].[DueDateKey],[dbo].[FactInternetSales].[ShipDateKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber]
+		FROM [dbo].[FactInternetSales]
+		WHERE FactInternetSales.SalesAmount &gt; 500</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

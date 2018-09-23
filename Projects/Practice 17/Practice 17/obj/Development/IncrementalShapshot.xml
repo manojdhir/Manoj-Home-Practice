@@ -1,0 +1,89 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Practice 17</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>2OmeLB/55o6efwtfYt1xoWTWWiw=24-Oct-14 2:24:09 PM24-Oct-14 2:24:09 PM</TimeStamp>
+        <ID>
+          <String>Adventure Works DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>TnRfaY74BKZBJ/sCizzqACKd9Lk=24-Oct-14 3:29:11 PM24-Oct-14 2:24:41 PM</TimeStamp>
+        <ID>
+          <String>Adventure Works DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LT1LxY2rUOlwtJhxWBULDe7krf8=24-Oct-14 3:26:58 PM24-Oct-14 2:26:13 PM</TimeStamp>
+        <ID>
+          <String>Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>JvF4sGNR6bVpBI8iV7wGMSpqN64=24-Oct-14 2:26:57 PM24-Oct-14 2:26:57 PM</TimeStamp>
+        <ID>
+          <String>Product</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>PIAtiDH8N6RiEWqibZ6ebZiJr2c=24-Oct-14 3:26:58 PM24-Oct-14 2:27:50 PM</TimeStamp>
+        <ID>
+          <String>Promotion</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>C9RG7xeDj6KQqL6L8NUjK5kIey4=24-Oct-14 3:26:58 PM24-Oct-14 3:26:58 PM</TimeStamp>
+        <ID>
+          <String>Dim Product Subcategory</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ygoJaU96ckB8ah0mFT/70uWC7eE=24-Oct-14 3:29:11 PM24-Oct-14 3:29:11 PM</TimeStamp>
+        <ID>
+          <String>Dim Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>unLDjNg/efT3K9As/6okXYaHWOE=24-Oct-14 3:29:28 PM24-Oct-14 2:25:11 PMjUxV6+jqtR+BBQTTCazb3bElH9k=24-Oct-14 2:56:57 PM24-Oct-14 2:25:11 PM</TimeStamp>
+        <ID>
+          <String>Adventure Works DW</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>tANm+N24qWU/YkYyvQtCnsCG6F0=24-Oct-14 2:15:38 PM24-Oct-14 2:15:38 PM</TimeStamp>
+      <ID>
+        <String>Practice 17</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2014-10-24T09:59:30.586667Z</LastDeployed>
+</DeploymentSnapshot>

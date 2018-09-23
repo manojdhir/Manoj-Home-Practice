@@ -1,0 +1,145 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="MANOJ-PC\Manoj"
+  DTS:CreatorComputerName="MANOJ-PC"
+  DTS:CreationDate="8/4/2016 2:30:47 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E547EE78-79BA-4F5A-A57C-5CF92D24B1F8}"
+  DTS:EnableConfig="True"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Child"
+  DTS:DTSID="{769A52DA-04EA-462D-9497-02F4E35C33DA}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANOJ-PC.Sample]"
+      DTS:ObjectName="MANOJ-PC.Sample"
+      DTS:DTSID="{B7013DA1-AF32-4DA9-AA14-AFB034E373D7}"
+      DTS:CreationName="OLEDB">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[User::C_DBName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::C_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=;Initial Catalog=;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="PassDB"
+      DTS:ConfigurationVariable="\Package.Variables[User::C_DBName].Properties[Value]"
+      DTS:ObjectName="Configuration 1"
+      DTS:DTSID="{BFB926D9-AA22-4271-98D5-B59A4C0C51B3}"
+      DTS:CreationName="" />
+    <DTS:Configuration
+      DTS:ConfigurationString="ServerName"
+      DTS:ConfigurationVariable="\Package.Variables[User::C_ServerName].Properties[Value]"
+      DTS:ObjectName="Configuration 2"
+      DTS:DTSID="{DA911206-FD4E-4E78-AA83-81A7E5A1BBD3}"
+      DTS:CreationName="" />
+    <DTS:Configuration
+      DTS:ConfigurationString="TableName"
+      DTS:ConfigurationVariable="\Package.Variables[User::C_TableName].Properties[Value]"
+      DTS:ObjectName="Configuration 3"
+      DTS:DTSID="{37514EC1-DB98-47E8-8E3D-3FD5BDED4C09}"
+      DTS:CreationName="" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="C_DBName"
+      DTS:DTSID="{5E1EDE26-20CA-4BB5-839B-A2F547BEE63D}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="C_ServerName"
+      DTS:DTSID="{E8152453-A021-468A-97C7-7DC242F4E86D}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="C_TableName"
+      DTS:DTSID="{670B6D15-834A-4EC3-B876-069E65788509}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:DTSID="{AED21B26-CCD7-4A60-8DA5-A97E92BE22BA}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B7013DA1-AF32-4DA9-AA14-AFB034E373D7}"
+          SQLTask:SqlStatementSource="Declare @TableName VARCHAR(100)&#xA;Declare @Database VARCHAR(100)&#xA;Declare @sqlstring nvarchar(2000)&#xA;Declare @RowCount int&#xA;Set @Server = ?&#xA;Set @Database = ?&#xA;Set @TableName = ?&#xA;Set @sqlstring = 'Select @OutRowCount = Count(*)&#xA; From '+@TableName&#xA;&#xA;&#xA;exec sp_executesql&#xA;@sqlstring&#xA;,N' @OutRowCount INT Output'&#xA;,@OutRowCount = @RowCount Output&#xA;&#xA;Insert into[MANOJ-PC].sample.dbo.logdata&#xA;Select @server,@Database,@TableName,@RowCount" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::C_ServerName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::C_DBName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::C_TableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="234,54" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

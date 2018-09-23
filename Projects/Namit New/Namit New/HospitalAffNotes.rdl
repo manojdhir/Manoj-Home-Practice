@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.15in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Note">
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>= trim(Code.FieldThenNewLine(Fields!Note.Value))</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Note</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSet1</DataSetName>
+        <Height>0.15in</Height>
+        <Width>1in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>0.15in</Height>
+    <Style />
+  </Body>
+  <Width>1in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="Notes">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=Khan;Initial Catalog=UCENT</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>10be63de-a630-4943-b945-0579122edaf1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>Notes</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@docid">
+            <Value>=Parameters!docid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>with cte as (
+SELECT	
+	
+	coalesce(DBGN.Note, CVN.NoteText) as Note,
+	isNull(CVN.CVOLog_ID, 0) as CVOLog_ID
+FROM	DOCDB_GENNOTES as DBGN
+LEFT OUTER JOIN DOCDB_GenNotesFacJoin as GNFJ ON DBGN.INDX = GNFJ.INDX AND GNFJ.FacilityID in (@facilitypicklist)
+LEFT OUTER JOIN CVONotes as CVN ON DBGN.INDX = CVN.DocDB_GenNotes_Indx WHERE DBGN.DOCID=@docid and NOTECAT like 'Hospital%' )--and DBGN.note&lt;&gt;'') 
+select * from cte where CVOLog_ID=0</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Note">
+          <DataField>Note</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CVOLog_ID">
+          <DataField>CVOLog_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="docid">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>docid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="facilitypicklist">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>facilitypicklist</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>function NewLine()
+	return chr(13) &amp; chr(10)
+end function
+
+function ColumnNumber()
+	return 1
+end function
+
+function FieldThenNewLine(field)
+    if field = "" then
+        return ""
+    else
+        return field &amp; chr(13) &amp; chr(10)
+    end if
+end function</Code>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>152cbc5a-1869-46a8-aa5f-15cc178d2cb8</rd:ReportID>
+</Report>

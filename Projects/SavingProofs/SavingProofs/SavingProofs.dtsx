@@ -1,0 +1,2291 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="manoj-PC\manoj"
+  DTS:CreatorComputerName="MANOJ-PC"
+  DTS:CreationDate="4/29/2018 11:40:39 AM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{FA4711A0-9F54-4109-93D2-882804AC57FC}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="SavingProofs"
+  DTS:DTSID="{56374AB1-A0A5-4509-880A-DB999E797B71}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:ObjectName="Excel Connection Manager"
+      DTS:DTSID="{3ACC76F7-6217-43B2-B370-9B00AE862721}"
+      DTS:CreationName="EXCEL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Savings\SavingProofs.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES;IMEX=1&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+      DTS:ObjectName="MANOJ-PC.Housholds"
+      DTS:DTSID="{2C67F562-A832-457A-AB22-CBF334E5D380}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANOJ-PC;Initial Catalog=Housholds;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="6789"
+      DTS:ObjectName="SavingRowCnt"
+      DTS:DTSID="{D0F2B4DA-5DB9-4450-8EA9-F96AFF412AF3}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chk_If_RcdExist"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chk_If_RcdExist"
+      DTS:DTSID="{A2A61441-878A-4EED-BE83-009CB7666B01}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C67F562-A832-457A-AB22-CBF334E5D380}"
+          SQLTask:SqlStatementSource="select count(*) from Savings"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::SavingRowCnt" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Sving"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Sving"
+      DTS:DTSID="{19AE30F4-2ED3-42CE-B92E-8E82433C9702}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Sving\Data Conversion"
+              name="Data Conversion"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              description="Data Conversion"
+              usesDispositions="true"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input].Columns[Account Nickname]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Nickname]"
+                      cachedName="Account Nickname"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input].Columns[Account Number]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Number]"
+                      cachedName="Account Number"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input].Columns[Branch Name]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Branch Name]"
+                      cachedName="Branch Name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input].Columns[Comment]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Comment]"
+                      cachedName="Comment"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output]"
+                  name="Data Conversion Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Branch Name]"
+                      name="Copy of Branch Name"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Branch Name]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Branch Name]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Account Number]"
+                      name="Copy of Account Number"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Account Number]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Number]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Account Nickname]"
+                      name="Copy of Account Nickname"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Account Nickname]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Nickname]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Comment]"
+                      name="Copy of Comment"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Comment]"
+                      length="50"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Comment]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Error Output]"
+                  name="Data Conversion Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Sving\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\DFT_Sving\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\DFT_Sving\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Output].Columns[StartDate]"
+                      name="StartDate"
+                      lineageId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[GETDATE]()</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\DFT_Sving\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Sving\Excel Source"
+              name="Excel Source"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              description="Excel Source"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">RealSavings$</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Sving\Excel Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Sr#No]"
+                      name="Sr#No"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Sr#No]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sr#No]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Nickname]"
+                      name="Account Nickname"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Nickname]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Account Nickname]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Number]"
+                      name="Account Number"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Number]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Account Number]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Branch Name]"
+                      name="Branch Name"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Branch Name]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Branch Name]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Start Date]"
+                      name="Start Date"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Start Date]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Start Date]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Balance]"
+                      name="Account Balance"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Balance]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Account Balance]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Maturity Date]"
+                      name="Maturity Date"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Maturity Date]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Maturity Date]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Maturity Amount]"
+                      name="Maturity Amount"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Maturity Amount]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Maturity Amount]" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Comment]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Comment]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sr#No]"
+                      name="Sr#No"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Account Nickname]"
+                      name="Account Nickname"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Account Number]"
+                      name="Account Number"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Branch Name]"
+                      name="Branch Name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Start Date]"
+                      name="Start Date"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Account Balance]"
+                      name="Account Balance"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Maturity Date]"
+                      name="Maturity Date"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Maturity Amount]"
+                      name="Maturity Amount"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output]"
+                  name="Excel Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Sr#No]"
+                      name="Sr#No"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Sr#No]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Account Nickname]"
+                      name="Account Nickname"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Account Nickname]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Account Number]"
+                      name="Account Number"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Account Number]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Branch Name]"
+                      name="Branch Name"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Branch Name]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Start Date]"
+                      name="Start Date"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Start Date]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Account Balance]"
+                      name="Account Balance"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Account Balance]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Maturity Date]"
+                      name="Maturity Date"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Maturity Date]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Maturity Amount]"
+                      name="Maturity Amount"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Maturity Amount]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[Comment]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Sving\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Savings]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."></property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Sving\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Start Date]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Start Date]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start Date]"
+                      cachedName="Start Date"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Account Balance]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Account Balance]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Balance]"
+                      cachedName="Account Balance"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Maturity Date]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Maturity Date]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Date]"
+                      cachedName="Maturity Date"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Maturity Amount]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Maturity Amount]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Amount]"
+                      cachedName="Maturity Amount"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sr#No]"
+                      lineageId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output].Columns[Sr#No]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SavingId]"
+                      cachedName="Sr#No"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Account Nickname]"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Account Nickname]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Name]"
+                      cachedName="Copy of Account Nickname"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Account Number]"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Account Number]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Number]"
+                      cachedName="Copy of Account Number"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Branch Name]"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Branch Name]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Branch Name]"
+                      cachedName="Copy of Branch Name"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      lineageId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Output].Columns[StartDate]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate1]"
+                      cachedName="StartDate"
+                      cachedDataType="dbTimeStamp" />
+                    <inputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Comment]"
+                      lineageId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Comment]"
+                      externalMetadataColumnId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      cachedName="Copy of Comment"
+                      cachedDataType="wstr"
+                      cachedLength="50" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SavingId]"
+                      name="SavingId"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Name]"
+                      name="Account Name"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Number]"
+                      name="Account Number"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Branch Name]"
+                      name="Branch Name"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start Date]"
+                      name="Start Date"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Balance]"
+                      name="Account Balance"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Date]"
+                      name="Maturity Date"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Amount]"
+                      name="Maturity Amount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate1]"
+                      name="StartDate1"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="wstr"
+                      length="50" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Sving\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\DFT_Sving\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Sving\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\DFT_Sving\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Sving.Paths[Data Conversion Output]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Sving\Data Conversion.Outputs[Data Conversion Output]"
+              endId="Package\DFT_Sving\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\DFT_Sving.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\DFT_Sving\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\DFT_Sving\Data Conversion.Inputs[Data Conversion Input]" />
+            <path
+              refId="Package\DFT_Sving.Paths[Excel Source Output]"
+              name="Excel Source Output"
+              startId="Package\DFT_Sving\Excel Source.Outputs[Excel Source Output]"
+              endId="Package\DFT_Sving\Derived Column.Inputs[Derived Column Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:DTSID="{CF7FD489-7FA5-49BA-8312-96026EBE8D1E}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C67F562-A832-457A-AB22-CBF334E5D380}"
+          SQLTask:SqlStatementSource="Truncate Table Savings" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Saving_bkp"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Saving_bkp"
+      DTS:DTSID="{63140D81-499E-41A6-BE4D-7FB44ADFCBB2}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Saving_bkp\ChkforNewRcd"
+              name="ChkforNewRcd"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              usesDispositions="true"
+              version="6"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">select * from [dbo].[Savings_Bkp]</property>
+                <property
+                  name="SqlCommandParam"
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">select * from (select * from [dbo].[Savings_Bkp]) [refTable]
+where [refTable].[SavingId] = ?</property>
+                <property
+                  name="ConnectionType"
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  name="CacheType"
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  typeConverter="CacheType">0</property>
+                <property
+                  name="NoMatchBehavior"
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  name="NoMatchCachePercentage"
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset.">0</property>
+                <property
+                  name="MaxMemoryUsage"
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform.">25</property>
+                <property
+                  name="MaxMemoryUsage64"
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform.">25</property>
+                <property
+                  name="ReferenceMetadataXml"
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SavingId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Account Name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Account Number" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Branch Name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Start Date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Account Balance" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Maturity Date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Maturity Amount" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate1" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Comment" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  name="ParameterMap"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  containsID="true">#{Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[SavingId]};</property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="TreatDuplicateKeysAsError"
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used.">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Saving_bkp\ChkforNewRcd.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="Connection manager used to access lookup data."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Saving_bkp\ChkforNewRcd.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Inputs[Lookup Input].Columns[SavingId]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[SavingId]"
+                      cachedName="SavingId"
+                      cachedDataType="i4">
+                      <properties>
+                        <property
+                          name="JoinToReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins.">SavingId</property>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied." />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output]"
+                  name="Lookup Match Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Saving_bkp\ChkforNewRcd.Inputs[Lookup Input]"
+                  errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldAccount Name]"
+                      name="oldAccount Name"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldAccount Name]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Account Name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldAccount Number]"
+                      name="oldAccount Number"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldAccount Number]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Account Number</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldBranch Name]"
+                      name="oldBranch Name"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldBranch Name]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Branch Name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldStart Date]"
+                      name="oldStart Date"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldStart Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Start Date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldAccount Balance]"
+                      name="oldAccount Balance"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldAccount Balance]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Account Balance</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldMaturity Date]"
+                      name="oldMaturity Date"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldMaturity Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Maturity Date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldMaturity Amount]"
+                      name="oldMaturity Amount"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldMaturity Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Maturity Amount</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldStartDate1]"
+                      name="oldStartDate1"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldStartDate1]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">StartDate1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldComment]"
+                      name="oldComment"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldComment]"
+                      length="50"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Comment</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldSavingId]"
+                      name="oldSavingId"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output].Columns[oldSavingId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">SavingId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup No Match Output]"
+                  name="Lookup No Match Output"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Saving_bkp\ChkforNewRcd.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Error Output]"
+                  name="Lookup Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Saving_bkp\ChkforNewRcd.Inputs[Lookup Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Saving_bkp\OLE DB Command"
+              name="OLE DB Command"
+              componentClassID="{93FFEC66-CBC8-4C7F-9C6A-CB1C17A7567D}"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              usesDispositions="true"
+              version="2"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">update Savings_Bkp
+set Comment =?
+where SavingId=?</property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Saving_bkp\OLE DB Command.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="OLE DB Command Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input].Columns[Comment]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      cachedName="Comment"
+                      cachedDataType="wstr"
+                      cachedLength="50" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input].Columns[SavingId]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[SavingId]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      cachedName="SavingId"
+                      cachedDataType="i4" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      name="Param_0"
+                      dataType="wstr"
+                      length="50">
+                      <properties>
+                        <property
+                          name="DBParamInfoFlags"
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values.">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      name="Param_1"
+                      dataType="i4">
+                      <properties>
+                        <property
+                          name="DBParamInfoFlags"
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values.">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Saving_bkp\OLE DB Command.Outputs[OLE DB Command Output]"
+                  name="OLE DB Command Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Saving_bkp\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  name="OLE DB Command Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Saving_bkp\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Saving_bkp\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Saving_bkp\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Savings_Bkp]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Saving_bkp\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SavingId]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[SavingId]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SavingId]"
+                      cachedName="SavingId"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Account Name]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Name]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Name]"
+                      cachedName="Account Name"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Account Number]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Number]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Number]"
+                      cachedName="Account Number"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Branch Name]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Branch Name]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Branch Name]"
+                      cachedName="Branch Name"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Start Date]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Start Date]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start Date]"
+                      cachedName="Start Date"
+                      cachedDataType="dbDate" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Account Balance]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Balance]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Balance]"
+                      cachedName="Account Balance"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Maturity Date]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Maturity Date]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Date]"
+                      cachedName="Maturity Date"
+                      cachedDataType="dbDate" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Maturity Amount]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Maturity Amount]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Amount]"
+                      cachedName="Maturity Amount"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StartDate1]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[StartDate1]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate1]"
+                      cachedName="StartDate1"
+                      cachedDataType="dbDate" />
+                    <inputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comment]"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      cachedName="Comment"
+                      cachedDataType="wstr"
+                      cachedLength="50" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SavingId]"
+                      name="SavingId"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Name]"
+                      name="Account Name"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Number]"
+                      name="Account Number"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Branch Name]"
+                      name="Branch Name"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start Date]"
+                      name="Start Date"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account Balance]"
+                      name="Account Balance"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Date]"
+                      name="Maturity Date"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Maturity Amount]"
+                      name="Maturity Amount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate1]"
+                      name="StartDate1"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="wstr"
+                      length="50" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Saving_bkp\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Saving_bkp\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Saving_bkp\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Saving_bkp\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Savings]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Saving_bkp\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[SavingId]"
+                      name="SavingId"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[SavingId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SavingId]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Name]"
+                      name="Account Name"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Name]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Account Name]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Number]"
+                      name="Account Number"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Number]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Account Number]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Branch Name]"
+                      name="Branch Name"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Branch Name]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Branch Name]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Start Date]"
+                      name="Start Date"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Start Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Start Date]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Balance]"
+                      name="Account Balance"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Account Balance]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Account Balance]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Maturity Date]"
+                      name="Maturity Date"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Maturity Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Maturity Date]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Maturity Amount]"
+                      name="Maturity Amount"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Maturity Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Maturity Amount]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[StartDate1]"
+                      name="StartDate1"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[StartDate1]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StartDate1]" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      length="50"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SavingId]"
+                      name="SavingId"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Account Name]"
+                      name="Account Name"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Account Number]"
+                      name="Account Number"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Branch Name]"
+                      name="Branch Name"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Start Date]"
+                      name="Start Date"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Account Balance]"
+                      name="Account Balance"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Maturity Date]"
+                      name="Maturity Date"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Maturity Amount]"
+                      name="Maturity Amount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StartDate1]"
+                      name="StartDate1"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="wstr"
+                      length="50" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SavingId]"
+                      name="SavingId"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SavingId]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Account Name]"
+                      name="Account Name"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Account Name]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Account Number]"
+                      name="Account Number"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Account Number]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Branch Name]"
+                      name="Branch Name"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Branch Name]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Start Date]"
+                      name="Start Date"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Start Date]"
+                      dataType="dbDate" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Account Balance]"
+                      name="Account Balance"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Account Balance]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Maturity Date]"
+                      name="Maturity Date"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Maturity Date]"
+                      dataType="dbDate" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Maturity Amount]"
+                      name="Maturity Amount"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Maturity Amount]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StartDate1]"
+                      name="StartDate1"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StartDate1]"
+                      dataType="dbDate" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      length="50"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Saving_bkp.Paths[Lookup Match Output]"
+              name="Lookup Match Output"
+              startId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup Match Output]"
+              endId="Package\Saving_bkp\OLE DB Command.Inputs[OLE DB Command Input]" />
+            <path
+              refId="Package\Saving_bkp.Paths[Lookup No Match Output]"
+              name="Lookup No Match Output"
+              startId="Package\Saving_bkp\ChkforNewRcd.Outputs[Lookup No Match Output]"
+              endId="Package\Saving_bkp\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Saving_bkp.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Saving_bkp\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\Saving_bkp\ChkforNewRcd.Inputs[Lookup Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:From="Package\Execute SQL Task"
+      DTS:To="Package\DFT_Sving"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:DTSID="{F1F26E31-26AC-4424-B035-4275D5B4C693}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:From="Package\DFT_Sving"
+      DTS:To="Package\Chk_If_RcdExist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:DTSID="{12A33D1B-3A18-4D70-BC5F-19E67A0F1ED8}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:From="Package\Chk_If_RcdExist"
+      DTS:To="Package\Saving_bkp"
+      DTS:EvalOp="4"
+      DTS:LogicalAnd="True"
+      DTS:Expression="@[User::SavingRowCnt] &gt; 0"
+      DTS:ObjectName="Constraint 2"
+      DTS:DTSID="{06CCAB66-6D0C-4E2A-8FFE-511F1617E30C}"
+      DTS:CreationName="" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Chk_If_RcdExist"
+          TopLeft="377,232" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFT_Sving"
+          TopLeft="261,154" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="193,70" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Saving_bkp"
+          TopLeft="531,328" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="275,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51,42"
+              Start="0,0"
+              End="51,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="47,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47,21"
+                    Point2="51,21"
+                    Point3="51,25" />
+                  <mssgle:LineSegment
+                    End="51,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="326,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143,36"
+              Start="0,0"
+              End="143,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="139,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139,18"
+                    Point2="143,18"
+                    Point3="143,22" />
+                  <mssgle:LineSegment
+                    End="143,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="469,274">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129,54"
+              Start="0,0"
+              End="129,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="125,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="125,27"
+                    Point2="129,27"
+                    Point3="129,31" />
+                  <mssgle:LineSegment
+                    End="129,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="56.5,32,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Sving">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DFT_Sving\Derived Column"
+          TopLeft="289,116" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DFT_Sving\OLE DB Destination"
+          TopLeft="436,289" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFT_Sving\Data Conversion"
+          TopLeft="383,198" />
+        <EdgeLayout
+          Id="Package\DFT_Sving.Paths[Derived Column Output]"
+          TopLeft="366.5,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95,40"
+              Start="0,0"
+              End="95,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="91,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91,20"
+                    Point2="95,20"
+                    Point3="95,24" />
+                  <mssgle:LineSegment
+                    End="95,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Sving.Paths[Data Conversion Output]"
+          TopLeft="461.5,240">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.5,49"
+              Start="0,0"
+              End="60.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="56.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.5,24.5"
+                    Point2="60.5,24.5"
+                    Point3="60.5,28.5" />
+                  <mssgle:LineSegment
+                    End="60.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42"
+          Id="Package\DFT_Sving\Excel Source"
+          TopLeft="271,13" />
+        <EdgeLayout
+          Id="Package\DFT_Sving.Paths[Excel Source Output]"
+          TopLeft="341,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.5,61"
+              Start="0,0"
+              End="25.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="21.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5,30.5"
+                    Point2="25.5,30.5"
+                    Point3="25.5,34.5" />
+                  <mssgle:LineSegment
+                    End="25.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Sving\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Saving_bkp">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Saving_bkp\OLE DB Source"
+          TopLeft="170,35" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Saving_bkp\ChkforNewRcd"
+          TopLeft="330,119" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Saving_bkp\OLE DB Destination"
+          TopLeft="125,240" />
+        <EdgeLayout
+          Id="Package\Saving_bkp.Paths[Lookup No Match Output]"
+          TopLeft="381,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-170,79"
+              Start="0,0"
+              End="-170,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1035856573705" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.1035856573705"
+                    Point2="0,32.1035856573705"
+                    Point3="-4,32.1035856573705" />
+                  <mssgle:LineSegment
+                    End="-166,32.1035856573705" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-166,32.1035856573705"
+                    Point2="-170,32.1035856573705"
+                    Point3="-170,36.1035856573705" />
+                  <mssgle:LineSegment
+                    End="-170,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-140.80638671875,37.1035856573705,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Saving_bkp.Paths[OLE DB Source Output]"
+          TopLeft="245.5,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="159,42"
+              Start="0,0"
+              End="159,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="155,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="155,21"
+                    Point2="159,21"
+                    Point3="159,25" />
+                  <mssgle:LineSegment
+                    End="159,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Saving_bkp\OLE DB Command"
+          TopLeft="460,246" />
+        <EdgeLayout
+          Id="Package\Saving_bkp.Paths[Lookup Match Output]"
+          TopLeft="428,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.5,85"
+              Start="0,0"
+              End="115.5,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5418326693227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5418326693227"
+                    Point2="0,34.5418326693227"
+                    Point3="4,34.5418326693227" />
+                  <mssgle:LineSegment
+                    End="111.5,34.5418326693227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111.5,34.5418326693227"
+                    Point2="115.5,34.5418326693227"
+                    Point3="115.5,38.5418326693227" />
+                  <mssgle:LineSegment
+                    End="115.5,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.55861328125,39.5418326693227,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Saving_bkp\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Saving_bkp\ChkforNewRcd">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Savings_Bkp]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Saving_bkp\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Sving\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

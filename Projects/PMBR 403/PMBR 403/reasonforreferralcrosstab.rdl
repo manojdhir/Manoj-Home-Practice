@@ -1,0 +1,1493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="List1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>11in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>7.395in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="List1_Contents">
+                      <ReportItems>
+                        <Tablix Name="matrix1">
+                          <TablixCorner>
+                            <TablixCornerRows>
+                              <TablixCornerRow>
+                                <TablixCornerCell>
+                                  <CellContents>
+                                    <Textbox Name="textbox3">
+                                      <CanGrow>true</CanGrow>
+                                      <KeepTogether>true</KeepTogether>
+                                      <Paragraphs>
+                                        <Paragraph>
+                                          <TextRuns>
+                                            <TextRun>
+                                              <Value>Department</Value>
+                                              <Style>
+                                                <FontWeight>Bold</FontWeight>
+                                              </Style>
+                                            </TextRun>
+                                          </TextRuns>
+                                          <Style />
+                                        </Paragraph>
+                                      </Paragraphs>
+                                      <rd:DefaultName>textbox3</rd:DefaultName>
+                                      <ZIndex>5</ZIndex>
+                                      <Style>
+                                        <Border>
+                                          <Style>Solid</Style>
+                                        </Border>
+                                        <PaddingLeft>2pt</PaddingLeft>
+                                        <PaddingRight>2pt</PaddingRight>
+                                        <PaddingTop>2pt</PaddingTop>
+                                        <PaddingBottom>2pt</PaddingBottom>
+                                      </Style>
+                                    </Textbox>
+                                    <RowSpan>2</RowSpan>
+                                  </CellContents>
+                                </TablixCornerCell>
+                              </TablixCornerRow>
+                              <TablixCornerRow>
+                                <TablixCornerCell />
+                              </TablixCornerRow>
+                            </TablixCornerRows>
+                          </TablixCorner>
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>1.59375in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.21in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="textbox2">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=CountDistinct(Fields!case_no.Value)</Value>
+                                                <Style>
+                                                  <FontSize>9pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>textbox2</rd:DefaultName>
+                                        <ZIndex>1</ZIndex>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                    <DataElementOutput>Output</DataElementOutput>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.21in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="textbox7">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=CountDistinct(Fields!case_no.Value)</Value>
+                                                <Style>
+                                                  <FontSize>9pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>textbox2</rd:DefaultName>
+                                        <ZIndex>1</ZIndex>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BackgroundColor>LightGrey</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                    <DataElementOutput>Output</DataElementOutput>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <Group Name="matrix1_ColumnGroup2">
+                                  <GroupExpressions>
+                                    <GroupExpression>="Reason for Referral"</GroupExpression>
+                                  </GroupExpressions>
+                                </Group>
+                                <TablixHeader>
+                                  <Size>0.21in</Size>
+                                  <CellContents>
+                                    <Textbox Name="textbox6">
+                                      <CanGrow>true</CanGrow>
+                                      <KeepTogether>true</KeepTogether>
+                                      <Paragraphs>
+                                        <Paragraph>
+                                          <TextRuns>
+                                            <TextRun>
+                                              <Value>="Reason for Referral"</Value>
+                                              <Style>
+                                                <FontSize>8pt</FontSize>
+                                                <FontWeight>Bold</FontWeight>
+                                              </Style>
+                                            </TextRun>
+                                          </TextRuns>
+                                          <Style>
+                                            <TextAlign>Center</TextAlign>
+                                          </Style>
+                                        </Paragraph>
+                                      </Paragraphs>
+                                      <rd:DefaultName>textbox6</rd:DefaultName>
+                                      <ZIndex>4</ZIndex>
+                                      <Style>
+                                        <Border>
+                                          <Style>Solid</Style>
+                                        </Border>
+                                        <PaddingLeft>2pt</PaddingLeft>
+                                        <PaddingRight>2pt</PaddingRight>
+                                        <PaddingTop>2pt</PaddingTop>
+                                        <PaddingBottom>2pt</PaddingBottom>
+                                      </Style>
+                                    </Textbox>
+                                  </CellContents>
+                                </TablixHeader>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <Group Name="matrix1_reasonforreferral">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!reasonforreferral.Value</GroupExpression>
+                                      </GroupExpressions>
+                                    </Group>
+                                    <TablixHeader>
+                                      <Size>0.21in</Size>
+                                      <CellContents>
+                                        <Textbox Name="reasonforreferral">
+                                          <CanGrow>true</CanGrow>
+                                          <KeepTogether>true</KeepTogether>
+                                          <Paragraphs>
+                                            <Paragraph>
+                                              <TextRuns>
+                                                <TextRun>
+                                                  <Value>=Fields!reasonforreferral.Value</Value>
+                                                  <Style>
+                                                    <FontSize>8pt</FontSize>
+                                                    <FontWeight>Bold</FontWeight>
+                                                  </Style>
+                                                </TextRun>
+                                              </TextRuns>
+                                              <Style>
+                                                <TextAlign>Center</TextAlign>
+                                              </Style>
+                                            </Paragraph>
+                                          </Paragraphs>
+                                          <rd:DefaultName>reasonforreferral</rd:DefaultName>
+                                          <ZIndex>3</ZIndex>
+                                          <Style>
+                                            <Border>
+                                              <Style>Solid</Style>
+                                            </Border>
+                                            <PaddingLeft>2pt</PaddingLeft>
+                                            <PaddingRight>2pt</PaddingRight>
+                                            <PaddingTop>2pt</PaddingTop>
+                                            <PaddingBottom>2pt</PaddingBottom>
+                                          </Style>
+                                        </Textbox>
+                                      </CellContents>
+                                    </TablixHeader>
+                                    <DataElementOutput>Output</DataElementOutput>
+                                    <KeepTogether>true</KeepTogether>
+                                  </TablixMember>
+                                </TablixMembers>
+                                <DataElementOutput>Output</DataElementOutput>
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <Group Name="matrix1_RowGroup1">
+                                  <GroupExpressions>
+                                    <GroupExpression>=Fields!DepartmentName.Value</GroupExpression>
+                                  </GroupExpressions>
+                                </Group>
+                                <TablixHeader>
+                                  <Size>2.2375in</Size>
+                                  <CellContents>
+                                    <Textbox Name="DepartmentName_1">
+                                      <CanGrow>true</CanGrow>
+                                      <KeepTogether>true</KeepTogether>
+                                      <Paragraphs>
+                                        <Paragraph>
+                                          <TextRuns>
+                                            <TextRun>
+                                              <Value>=Fields!DepartmentName.Value</Value>
+                                              <Style>
+                                                <FontSize>9pt</FontSize>
+                                                <FontWeight>Bold</FontWeight>
+                                              </Style>
+                                            </TextRun>
+                                          </TextRuns>
+                                          <Style />
+                                        </Paragraph>
+                                      </Paragraphs>
+                                      <rd:DefaultName>DepartmentName_1</rd:DefaultName>
+                                      <ZIndex>2</ZIndex>
+                                      <Style>
+                                        <Border>
+                                          <Style>Solid</Style>
+                                        </Border>
+                                        <PaddingLeft>2pt</PaddingLeft>
+                                        <PaddingRight>2pt</PaddingRight>
+                                        <PaddingTop>2pt</PaddingTop>
+                                        <PaddingBottom>2pt</PaddingBottom>
+                                      </Style>
+                                    </Textbox>
+                                  </CellContents>
+                                </TablixHeader>
+                                <DataElementOutput>Output</DataElementOutput>
+                              </TablixMember>
+                              <TablixMember>
+                                <TablixHeader>
+                                  <Size>2.2375in</Size>
+                                  <CellContents>
+                                    <Textbox Name="textbox5">
+                                      <CanGrow>true</CanGrow>
+                                      <KeepTogether>true</KeepTogether>
+                                      <Paragraphs>
+                                        <Paragraph>
+                                          <TextRuns>
+                                            <TextRun>
+                                              <Value>Total</Value>
+                                              <Style>
+                                                <FontSize>9pt</FontSize>
+                                                <FontWeight>Bold</FontWeight>
+                                              </Style>
+                                            </TextRun>
+                                          </TextRuns>
+                                          <Style />
+                                        </Paragraph>
+                                      </Paragraphs>
+                                      <rd:DefaultName>textbox5</rd:DefaultName>
+                                      <Style>
+                                        <Border>
+                                          <Style>Solid</Style>
+                                        </Border>
+                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                        <PaddingLeft>2pt</PaddingLeft>
+                                        <PaddingRight>2pt</PaddingRight>
+                                        <PaddingTop>2pt</PaddingTop>
+                                        <PaddingBottom>2pt</PaddingBottom>
+                                      </Style>
+                                    </Textbox>
+                                  </CellContents>
+                                </TablixHeader>
+                                <HideIfNoRows>true</HideIfNoRows>
+                                <DataElementOutput>NoOutput</DataElementOutput>
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <RepeatColumnHeaders>true</RepeatColumnHeaders>
+                          <RepeatRowHeaders>true</RepeatRowHeaders>
+                          <DataSetName>reasonforreferralcrosstabe</DataSetName>
+                          <Top>0.285in</Top>
+                          <Height>0.84in</Height>
+                          <Width>3.83125in</Width>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </Tablix>
+                        <Chart Name="chart1">
+                          <ChartCategoryHierarchy>
+                            <ChartMembers>
+                              <ChartMember>
+                                <Group Name="chart1_CategoryGroup">
+                                  <GroupExpressions>
+                                    <GroupExpression>=Fields!IndicatorName.Value</GroupExpression>
+                                  </GroupExpressions>
+                                </Group>
+                                <SortExpressions>
+                                  <SortExpression>
+                                    <Value>=Fields!IndicatorName.Value</Value>
+                                  </SortExpression>
+                                </SortExpressions>
+                                <Label>=Fields!IndicatorName.Value</Label>
+                              </ChartMember>
+                            </ChartMembers>
+                          </ChartCategoryHierarchy>
+                          <ChartSeriesHierarchy>
+                            <ChartMembers>
+                              <ChartMember>
+                                <Group Name="chart1_SeriesGroup1">
+                                  <GroupExpressions>
+                                    <GroupExpression>=Fields!DepartmentName.Value</GroupExpression>
+                                  </GroupExpressions>
+                                </Group>
+                                <Label>=Fields!DepartmentName.Value</Label>
+                                <DataElementOutput>Output</DataElementOutput>
+                              </ChartMember>
+                            </ChartMembers>
+                          </ChartSeriesHierarchy>
+                          <ChartData>
+                            <ChartSeriesCollection>
+                              <ChartSeries Name="Series1">
+                                <ChartDataPoints>
+                                  <ChartDataPoint>
+                                    <ChartDataPointValues>
+                                      <Y>=CountDistinct(Fields!case_no.Value)</Y>
+                                    </ChartDataPointValues>
+                                    <ChartDataLabel>
+                                      <Style />
+                                    </ChartDataLabel>
+                                    <Style />
+                                    <ChartMarker>
+                                      <Size>6pt</Size>
+                                      <Style />
+                                    </ChartMarker>
+                                  </ChartDataPoint>
+                                </ChartDataPoints>
+                                <Style />
+                                <ChartEmptyPoints>
+                                  <Style />
+                                  <ChartMarker>
+                                    <Style />
+                                  </ChartMarker>
+                                  <ChartDataLabel>
+                                    <Style />
+                                  </ChartDataLabel>
+                                </ChartEmptyPoints>
+                                <CustomProperties>
+                                  <CustomProperty>
+                                    <Name>PointWidth</Name>
+                                    <Value>0.6</Value>
+                                  </CustomProperty>
+                                </CustomProperties>
+                                <ValueAxisName>Primary</ValueAxisName>
+                                <CategoryAxisName>Primary</CategoryAxisName>
+                                <ChartSmartLabel>
+                                  <CalloutLineColor>Black</CalloutLineColor>
+                                  <MinMovingDistance>0pt</MinMovingDistance>
+                                </ChartSmartLabel>
+                              </ChartSeries>
+                            </ChartSeriesCollection>
+                          </ChartData>
+                          <ChartAreas>
+                            <ChartArea Name="Default">
+                              <ChartCategoryAxes>
+                                <ChartAxis Name="Primary">
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                      <Width>0.75pt</Width>
+                                    </Border>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                  <ChartAxisTitle>
+                                    <Caption />
+                                    <Style>
+                                      <FontSize>8pt</FontSize>
+                                    </Style>
+                                  </ChartAxisTitle>
+                                  <Margin>False</Margin>
+                                  <Interval>1</Interval>
+                                  <ChartMajorGridLines>
+                                    <Enabled>False</Enabled>
+                                    <Style>
+                                      <Border>
+                                        <Style>Solid</Style>
+                                        <Width>0.75pt</Width>
+                                      </Border>
+                                    </Style>
+                                    <Interval>NaN</Interval>
+                                  </ChartMajorGridLines>
+                                  <ChartMinorGridLines>
+                                    <Enabled>False</Enabled>
+                                    <Style>
+                                      <Border>
+                                        <Style>Solid</Style>
+                                        <Width>0.75pt</Width>
+                                      </Border>
+                                    </Style>
+                                    <Interval>NaN</Interval>
+                                    <IntervalOffset>-1</IntervalOffset>
+                                  </ChartMinorGridLines>
+                                  <ChartMajorTickMarks>
+                                    <Enabled>True</Enabled>
+                                    <Style>
+                                      <Border>
+                                        <Style>Solid</Style>
+                                        <Width>0.75pt</Width>
+                                      </Border>
+                                    </Style>
+                                    <Interval>NaN</Interval>
+                                  </ChartMajorTickMarks>
+                                  <ChartMinorTickMarks>
+                                    <Type>None</Type>
+                                  </ChartMinorTickMarks>
+                                  <Minimum>NaN</Minimum>
+                                  <Maximum>NaN</Maximum>
+                                  <PreventFontShrink>true</PreventFontShrink>
+                                  <PreventFontGrow>true</PreventFontGrow>
+                                  <AllowLabelRotation>None</AllowLabelRotation>
+                                  <IncludeZero>false</IncludeZero>
+                                  <ChartAxisScaleBreak>
+                                    <Style />
+                                  </ChartAxisScaleBreak>
+                                </ChartAxis>
+                                <ChartAxis Name="Secondary">
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                  <ChartAxisTitle>
+                                    <Caption />
+                                    <Style>
+                                      <FontSize>8pt</FontSize>
+                                    </Style>
+                                  </ChartAxisTitle>
+                                  <CrossAt>NaN</CrossAt>
+                                  <Location>Opposite</Location>
+                                  <Minimum>NaN</Minimum>
+                                  <Maximum>NaN</Maximum>
+                                  <ChartAxisScaleBreak>
+                                    <Style />
+                                  </ChartAxisScaleBreak>
+                                </ChartAxis>
+                              </ChartCategoryAxes>
+                              <ChartValueAxes>
+                                <ChartAxis Name="Primary">
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                      <Width>0.75pt</Width>
+                                    </Border>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                  <ChartAxisTitle>
+                                    <Caption />
+                                    <Style>
+                                      <FontSize>8pt</FontSize>
+                                    </Style>
+                                  </ChartAxisTitle>
+                                  <Margin>True</Margin>
+                                  <ChartMajorGridLines>
+                                    <Enabled>True</Enabled>
+                                    <Style>
+                                      <Border>
+                                        <Style>Solid</Style>
+                                        <Width>0.75pt</Width>
+                                      </Border>
+                                    </Style>
+                                    <Interval>NaN</Interval>
+                                  </ChartMajorGridLines>
+                                  <ChartMinorGridLines>
+                                    <Enabled>False</Enabled>
+                                    <Style>
+                                      <Border>
+                                        <Style>Solid</Style>
+                                        <Width>0.75pt</Width>
+                                      </Border>
+                                    </Style>
+                                    <Interval>NaN</Interval>
+                                  </ChartMinorGridLines>
+                                  <ChartMajorTickMarks>
+                                    <Enabled>True</Enabled>
+                                    <Style>
+                                      <Border>
+                                        <Style>Solid</Style>
+                                        <Width>0.75pt</Width>
+                                      </Border>
+                                    </Style>
+                                    <Interval>NaN</Interval>
+                                  </ChartMajorTickMarks>
+                                  <ChartMinorTickMarks>
+                                    <Type>None</Type>
+                                  </ChartMinorTickMarks>
+                                  <Scalar>true</Scalar>
+                                  <Minimum>0</Minimum>
+                                  <PreventFontShrink>true</PreventFontShrink>
+                                  <PreventFontGrow>true</PreventFontGrow>
+                                  <IncludeZero>false</IncludeZero>
+                                  <ChartAxisScaleBreak>
+                                    <Style />
+                                  </ChartAxisScaleBreak>
+                                </ChartAxis>
+                                <ChartAxis Name="Secondary">
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                  <ChartAxisTitle>
+                                    <Caption />
+                                    <Style>
+                                      <FontSize>8pt</FontSize>
+                                    </Style>
+                                  </ChartAxisTitle>
+                                  <CrossAt>NaN</CrossAt>
+                                  <Location>Opposite</Location>
+                                  <Minimum>NaN</Minimum>
+                                  <Maximum>NaN</Maximum>
+                                  <ChartAxisScaleBreak>
+                                    <Style />
+                                  </ChartAxisScaleBreak>
+                                </ChartAxis>
+                              </ChartValueAxes>
+                              <ChartThreeDProperties>
+                                <ProjectionMode>Perspective</ProjectionMode>
+                                <Shading>Simple</Shading>
+                                <WallThickness>15</WallThickness>
+                                <Clustered>true</Clustered>
+                              </ChartThreeDProperties>
+                              <Style>
+                                <Border>
+                                  <Style>Solid</Style>
+                                  <Width>0.75pt</Width>
+                                </Border>
+                                <BackgroundColor>LightGrey</BackgroundColor>
+                              </Style>
+                              <ChartElementPosition>
+                                <Top>2</Top>
+                                <Left>2</Left>
+                                <Height>90</Height>
+                                <Width>80</Width>
+                              </ChartElementPosition>
+                              <ChartInnerPlotPosition>
+                                <Top>1.676</Top>
+                                <Left>2</Left>
+                                <Height>82.653</Height>
+                                <Width>96</Width>
+                              </ChartInnerPlotPosition>
+                            </ChartArea>
+                          </ChartAreas>
+                          <ChartLegends>
+                            <ChartLegend Name="Default">
+                              <Style>
+                                <Border>
+                                  <Style>Solid</Style>
+                                  <Width>0.75pt</Width>
+                                </Border>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                              <Position>RightCenter</Position>
+                              <Layout>Column</Layout>
+                              <ChartLegendTitle>
+                                <Caption />
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </ChartLegendTitle>
+                              <AutoFitTextDisabled>true</AutoFitTextDisabled>
+                              <MaxAutoSize>20</MaxAutoSize>
+                            </ChartLegend>
+                          </ChartLegends>
+                          <DynamicWidth>=IIF((CountDistinct(Fields!reasonforreferral.Value) &gt; 11),(CountDistinct(Fields!reasonforreferral.Value))-2, 11) &amp; " in"</DynamicWidth>
+                          <ChartBorderSkin>
+                            <Style>
+                              <BackgroundColor>Gray</BackgroundColor>
+                              <BackgroundGradientType>None</BackgroundGradientType>
+                              <Color>White</Color>
+                            </Style>
+                          </ChartBorderSkin>
+                          <ChartNoDataMessage Name="NoDataMessage">
+                            <Caption>No Data Available</Caption>
+                            <Style>
+                              <BackgroundGradientType>None</BackgroundGradientType>
+                              <TextAlign>General</TextAlign>
+                              <VerticalAlign>Top</VerticalAlign>
+                            </Style>
+                          </ChartNoDataMessage>
+                          <DataSetName>reasonforreferralcrosstabe</DataSetName>
+                          <Top>4.15277in</Top>
+                          <Height>3.24223in</Height>
+                          <Width>11in</Width>
+                          <ZIndex>1</ZIndex>
+                          <Visibility>
+                            <Hidden>=IIF(Parameters!ShowGraph.Value,false,true)</Hidden>
+                          </Visibility>
+                          <CustomProperties>
+                            <CustomProperty>
+                              <Name>__Upgraded2005__</Name>
+                              <Value>__Upgraded2005__</Value>
+                            </CustomProperty>
+                          </CustomProperties>
+                          <Style>
+                            <BackgroundColor>White</BackgroundColor>
+                          </Style>
+                        </Chart>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style />
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="list1_facilityid">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!facilityid.Value</GroupExpression>
+                </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!facilityid.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>reasonforreferralcrosstabe</DataSetName>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <Top>0.21in</Top>
+        <Left>0.0125in</Left>
+        <Height>7.395in</Height>
+        <Width>11in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>19.3167cm</Height>
+    <Style />
+  </Body>
+  <Width>27.97175cm</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.1717cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Reason for Referral by Department - Matrix and Graph</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox1</rd:DefaultName>
+          <Top>0.125in</Top>
+          <Left>0.0125in</Left>
+          <Height>0.21in</Height>
+          <Width>9.95in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="facilityid">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!facilityname.Value, "reasonforreferralcrosstabe")</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>facilityid</rd:DefaultName>
+          <Top>0.375in</Top>
+          <Left>0.0125in</Left>
+          <Height>0.21in</Height>
+          <Width>9.95in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="For " + CStr(Parameters!startdate.Value) + " through " + CStr(Parameters!enddate.Value)</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.605in</Top>
+          <Left>0.0125in</Left>
+          <Height>0.25in</Height>
+          <Width>9.95in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value />
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox1</rd:DefaultName>
+          <Height>0.12667in</Height>
+          <Width>9.95in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.91551cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="textbox92">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Page " &amp; Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.125in</Top>
+          <Left>5.75417in</Left>
+          <Height>0.25in</Height>
+          <Width>4.22083in</Width>
+          <Style>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="textbox91">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Report Date:  " + Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.125in</Top>
+          <Left>0.025in</Left>
+          <Height>0.25in</Height>
+          <Width>3.475in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="StatuteText">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!StatuteText.Value, "reasonforreferralcrosstabe")</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>StatuteText</rd:DefaultName>
+          <Top>1.18321cm</Top>
+          <Left>0cm</Left>
+          <Height>0.6cm</Height>
+          <Width>25.30475cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>21.59cm</PageHeight>
+    <PageWidth>27.94cm</PageWidth>
+    <LeftMargin>0.5cm</LeftMargin>
+    <RightMargin>0.5cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>0.5cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="reasonforreferralcrosstabe">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=khan;Initial Catalog=peer</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>f416529f-6b53-4ba3-84c2-08c0851b2698</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="reasonforreferralcrosstabe">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referraltype">
+            <Value>=Parameters!referraltype.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referralcategory">
+            <Value>=Parameters!referralcategory.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referralindicator">
+            <Value>=Parameters!referralindicator.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@status">
+            <Value>=Parameters!status.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@startdate">
+            <Value>=Parameters!startdate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@enddate">
+            <Value>=Parameters!enddate.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT fcj.facilityid, f.facilityname, fcj.case_no, cd.med_rec_id, cd.admissions_no, pad.Admit_Date, pad.Discharge_Date, w.Description, d.DepartmentName,
+		ct.CaseTypeName, cc.CategoryName, ci.IndicatorName, pp.last_name, pp.first_name, pp.middle_name, pp.degree, cd.active_status, cd.provider_no
+, pss.StatuteText
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			JOIN dbo.PR_CaseTypes ct ON ct.facilityid = fcj.facilityid
+				AND ct.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+			JOIN dbo.PR_CaseCategories cc ON cc.facilityid = fcj.facilityid
+				AND cc.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				AND cc.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+			JOIN dbo.PR_CaseIndicators ci ON ci.facilityid = fcj.facilityid
+				AND ci.pr_casetypeid = rfrcj.PR_CaseTypeID
+				AND ci.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+				AND ci.PR_CaseIndicatorID = rfrcj.PR_CaseIndicatorID
+                                                LEFT JOIN pr_providerprofile_reporting pp on pp.facilityid = fcj.facilityid
+                                                                AND pp.pr_providerid = cd.provider_no
+			LEFT JOIN eprmr.dbo.MR_Patient_Detail pd ON pd.FacilityID = fcj.facilityid
+				AND pd.med_rec_id = cd.med_rec_id
+			LEFT JOIN eprmr.dbo.MR_Patient_Admission_Detail pad ON pad.FacilityID = fcj.facilityid	
+				AND pad.med_rec_id = cd.med_rec_id
+				AND pad.admissions_no = cd.admissions_no
+left join PR_StateStatute pss on pss.facilityId=f.facilityId			
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department) and rfrcj.pr_casetypeid in (@referraltype) and rfrcj.pr_casecategoryid in (@referralcategory) and rfrcj.pr_caseindicatorid in (@referralindicator) and cd.active_status in (@status) and (cd.incident_date &gt;= (@startdate) and cd.incident_date &lt;= (@enddate))
+order by d.departmentname, ct.casetypename, cc.categoryname, ci.indicatorname, pp.last_name, pp.first_name</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="facilityname">
+          <DataField>facilityname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="case_no">
+          <DataField>case_no</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="med_rec_id">
+          <DataField>med_rec_id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="admissions_no">
+          <DataField>admissions_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Admit_Date">
+          <DataField>Admit_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Discharge_Date">
+          <DataField>Discharge_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CaseTypeName">
+          <DataField>CaseTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CategoryName">
+          <DataField>CategoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IndicatorName">
+          <DataField>IndicatorName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="middle_name">
+          <DataField>middle_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="degree">
+          <DataField>degree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="active_status">
+          <DataField>active_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="provider_no">
+          <DataField>provider_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StatuteText">
+          <DataField>StatuteText</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="reasonforreferralchart">
+          <Value>= Fields!CategoryName.Value + ", " + Fields!IndicatorName.Value</Value>
+        </Field>
+        <Field Name="reasonforreferral">
+          <Value>=Fields!CaseTypeName.Value + ":  " + Fields!CategoryName.Value + ", " + Fields!IndicatorName.Value</Value>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="department">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT cd.pr_departmentid, d.DepartmentName
+
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+				
+				
+WHERE	fcj.facilityid in (@facilitypicklist)
+order by d.departmentname</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="pr_departmentid">
+          <DataField>pr_departmentid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="status">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT cd.active_status
+
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+
+where fcj.facilityid in (@facilitypicklist)and cd.active_status not in ('killed','Inactive')
+order by cd.active_status</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="active_status">
+          <DataField>active_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="referraltype">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT 	rfrcj.pr_casetypeid, ct.CaseTypeName
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			JOIN dbo.PR_CaseTypes ct ON ct.facilityid = fcj.facilityid
+				AND ct.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="pr_casetypeid">
+          <DataField>pr_casetypeid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CaseTypeName">
+          <DataField>CaseTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="referralcategory">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referraltype">
+            <Value>=Parameters!referraltype.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT 	rfrcj.pr_casecategoryid, cc.CategoryName
+
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			JOIN dbo.PR_CaseCategories cc ON cc.facilityid = fcj.facilityid
+				AND cc.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				AND cc.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+				
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department) and rfrcj.pr_casetypeid in (@referraltype)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="pr_casecategoryid">
+          <DataField>pr_casecategoryid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CategoryName">
+          <DataField>CategoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="referralindicator">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referraltype">
+            <Value>=Parameters!referraltype.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referralcategory">
+            <Value>=Parameters!referralcategory.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT 	rfrcj.pr_caseindicatorid, ci.indicatorname
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			JOIN dbo.PR_caseindicators ci ON ci.facilityid = fcj.facilityid
+				AND ci.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				AND ci.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+                                                                and ci.pr_caseindicatorid = rfrcj.pr_caseindicatorid
+				
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department) and rfrcj.pr_casetypeid in (@referraltype) and rfrcj.pr_casecategoryid in (@referralcategory)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="pr_caseindicatorid">
+          <DataField>pr_caseindicatorid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="indicatorname">
+          <DataField>indicatorname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="pr_userid">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <CommandText>select pr_userid
+from pr_userfacjoin
+group by pr_userid
+order by pr_userid</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="pr_userid">
+          <DataField>pr_userid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="facilitypicklist">
+      <Query>
+        <DataSourceName>reasonforreferralcrosstabe</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@pr_userid">
+            <Value>=Parameters!pr_userid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select ufj.facilityid, f.facilityname
+from pr_userfacjoin ufj
+             join pr_facilities f on f.facilityid = ufj.facilityid
+where ufj.pr_userid = (@pr_userid)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="facilityname">
+          <DataField>facilityname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="pr_userid">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2238</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_7</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="facilitypicklist">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Facilities</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>facilitypicklist</DataSetName>
+          <ValueField>facilityid</ValueField>
+          <LabelField>facilityname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="department">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Departments</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>department</DataSetName>
+          <ValueField>pr_departmentid</ValueField>
+          <LabelField>DepartmentName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="referraltype">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Referral Types</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>referraltype</DataSetName>
+          <ValueField>pr_casetypeid</ValueField>
+          <LabelField>CaseTypeName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="referralcategory">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Referral Categories</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>referralcategory</DataSetName>
+          <ValueField>pr_casecategoryid</ValueField>
+          <LabelField>CategoryName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="referralindicator">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Referral Indicators</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>referralindicator</DataSetName>
+          <ValueField>pr_caseindicatorid</ValueField>
+          <LabelField>indicatorname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="status">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Statuses</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>status</DataSetName>
+          <ValueField>active_status</ValueField>
+          <LabelField>active_status</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="startdate">
+      <DataType>DateTime</DataType>
+      <Prompt>Select or Enter Beginning Occurrence Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enddate">
+      <DataType>DateTime</DataType>
+      <Prompt>Select or Enter Ending Occurrence Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShowGraph">
+      <DataType>String</DataType>
+      <Prompt>Show Graph</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>true</Value>
+            <Label>Yes</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>false</Value>
+            <Label>No</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>abe652b0-8259-450a-81fb-b7ad1a3b51dc</rd:ReportID>
+</Report>

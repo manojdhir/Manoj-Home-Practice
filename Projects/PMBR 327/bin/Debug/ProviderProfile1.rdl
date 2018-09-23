@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.46042in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.33542in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.21042in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.57707in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>1.48833in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle1">
+                      <ReportItems>
+                        <Rectangle Name="Rectangle2">
+                          <ReportItems>
+                            <Subreport Name="Subreport5">
+                              <ReportName>providerdata</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Height>0.11111in</Height>
+                              <Width>8.58333in</Width>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport1">
+                              <ReportName>licenseverification</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.125in</Top>
+                              <Height>0.11111in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport2">
+                              <ReportName>insuranceverification</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.49305in</Top>
+                              <Height>0.10417in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>2</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport3">
+                              <ReportName>medtraining</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.68055in</Top>
+                              <Height>0.14584in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>3</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport4">
+                              <ReportName>certificationpage</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.37847in</Top>
+                              <Height>0.11458in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>4</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport6">
+                              <ReportName>Malpractice</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.59722in</Top>
+                              <Height>0.08333in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>5</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport8">
+                              <ReportName>DEA</ReportName>
+                              <Parameters>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.25in</Top>
+                              <Height>0.12847in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>6</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport7">
+                              <ReportName>hospitalaffiliations</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.82639in</Top>
+                              <Height>0.125in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>7</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="workhistory">
+                              <ReportName>workhistory</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>0.95139in</Top>
+                              <Height>0.13889in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>8</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport9">
+                              <ReportName>boards</ReportName>
+                              <Parameters>
+                                <Parameter Name="facilitypicklist">
+                                  <Value>=Fields!facilityid.Value</Value>
+                                </Parameter>
+                                <Parameter Name="providerpicklist">
+                                  <Value>=Fields!docid.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>1.09028in</Top>
+                              <Height>0.14584in</Height>
+                              <Width>8.58333in</Width>
+                              <ZIndex>9</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Top>0.18277in</Top>
+                          <Height>1.23612in</Height>
+                          <Width>8.58333in</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                    <ColSpan>4</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="facility_name">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!facname.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="provider_name">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!docid.Value</GroupExpression>
+                    </GroupExpressions>
+                    <PageBreak>
+                      <BreakLocation>End</BreakLocation>
+                    </PageBreak>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>ProviderVerificaitonReport</DataSetName>
+        <Height>1.48833in</Height>
+        <Width>8.58335in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>1.54042in</Height>
+    <Style />
+  </Body>
+  <Width>8.58335in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.63889in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="textbox26">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Report Date:  " + Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox26</rd:DefaultName>
+          <Top>0.06944in</Top>
+          <Height>0.25in</Height>
+          <Width>3.54167in</Width>
+          <Style>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="txtPlaceHolder">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value />
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.38889in</Top>
+          <Height>0.25in</Height>
+          <Width>1in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style />
+    </PageFooter>
+    <PageHeight>8.27in</PageHeight>
+    <PageWidth>11.69in</PageWidth>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ProviderVerificaitonReport">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=khan;Initial Catalog=UCENT</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>f9acd236-a84e-4013-a446-a0bc72f94d25</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="ProviderVerificaitonReport">
+      <Query>
+        <DataSourceName>ProviderVerificaitonReport</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@providerpicklist">
+            <Value>=Parameters!providerpicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@processstatus">
+            <Value>=Parameters!processstatus.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@providertype">
+            <Value>=Parameters!providertype.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT	ufj.facilityid, f.facname, dbp.docid, dbp.pslnam, dbp.psfnam, dbp.psmi, dbp.psdegree
+
+
+
+FROM	userfacjoin ufj
+                        JOIN uc_facility f ON ufj.facilityid = f.facilityid
+			JOIN docdb_personal dbp ON ufj.docid = dbp.docid
+                        JOIN docdb_providerfacilityspecificdata pfsd ON dbp.docid = pfsd.docid 
+                                  and pfsd.facilityid = ufj.facilityid
+                   LEFT JOIN docdb_professx dbprof ON dbp.docid = dbprof.docid 
+                                  and dbprof.PRACID = pfsd.pracid
+                                  and dbprof.PRACSUBID = pfsd.PracSubID
+			
+where ufj.facilityid in(@facilitypicklist)and pfsd.process_status in (@processstatus) and dbp.psprvdrtype in (@providertype)
+ and ufj.docid in (@providerpicklist)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="facname">
+          <DataField>facname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="docid">
+          <DataField>docid</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pslnam">
+          <DataField>pslnam</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psfnam">
+          <DataField>psfnam</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psmi">
+          <DataField>psmi</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psdegree">
+          <DataField>psdegree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="facilitypicklist">
+      <Query>
+        <DataSourceName>ProviderVerificaitonReport</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@docid">
+            <Value>=Parameters!docid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select ufj.facilityid, ucfacility.facname
+
+from userfacjoin ufj, uc_facility  ucfacility
+where ufj.docid = @docid and ufj.facilityid = ucfacility.facilityid
+order by facname asc
+</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="facname">
+          <DataField>facname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="processstatus">
+      <Query>
+        <DataSourceName>ProviderVerificaitonReport</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select pfsd.process_status
+from userfacjoin ufj
+     join docdb_providerfacilityspecificdata pfsd on pfsd.facilityid = ufj.facilityid 
+             and pfsd.docid = ufj.docid
+             and pfsd.process_status &lt;&gt; 'Expunged'
+
+where ufj.facilityid in (@facilitypicklist)
+
+group by pfsd.process_status
+order by pfsd.process_status</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="process_status">
+          <DataField>process_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="providertype">
+      <Query>
+        <DataSourceName>ProviderVerificaitonReport</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@processstatus">
+            <Value>=Parameters!processstatus.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select distinct dbp.psprvdrtype
+from userfacjoin ufj
+     join docdb_providerfacilityspecificdata pfsd on pfsd.facilityid = ufj.facilityid 
+             and pfsd.docid = ufj.docid
+             and pfsd.process_status &lt;&gt; 'Expunged'
+     join docdb_personal dbp on dbp.docid = ufj.docid
+
+where ufj.facilityid in (@facilitypicklist) and pfsd.process_status in(@processstatus)
+
+order by dbp.psprvdrtype</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="psprvdrtype">
+          <DataField>psprvdrtype</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="providerpicklist">
+      <Query>
+        <DataSourceName>ProviderVerificaitonReport</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@processstatus">
+            <Value>=Parameters!processstatus.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@providertype">
+            <Value>=Parameters!providertype.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select dbp.docid, dbp.pslnam, dbp.psfnam, dbp.psmi, dbp.psdegree
+from userfacjoin ufj
+            join docdb_personal dbp on dbp.docid = ufj.docid
+            join docdb_providerfacilityspecificdata pfsd on pfsd.facilityid = ufj.facilityid 
+                   and pfsd.docid = ufj.docid
+                   and pfsd.process_status &lt;&gt; 'Expunged'
+where ufj.facilityid in (@facilitypicklist) and pfsd.process_status in (@processstatus) and dbp.psprvdrtype in (@providertype)
+
+group by dbp.docid, dbp.pslnam, dbp.psfnam, dbp.psmi, dbp.psdegree
+order by dbp.pslnam asc, dbp.psfnam asc</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="docid">
+          <DataField>docid</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pslnam">
+          <DataField>pslnam</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psfnam">
+          <DataField>psfnam</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psmi">
+          <DataField>psmi</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="psdegree">
+          <DataField>psdegree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="providerfullname">
+          <Value>=Iif(IsNothing(Fields!psmi.Value), Fields!pslnam.Value + ", " + Fields!psfnam.Value + " " + Fields!psdegree.Value,
+Iif(Fields!psmi.Value = "", Fields!pslnam.Value + ", " + Fields!psfnam.Value + " " + Fields!psdegree.Value,
+Fields!pslnam.Value + ", " + Fields!psfnam.Value + " " + Fields!psmi.Value + " " + Fields!psdegree.Value))</Value>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="docid">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>189903</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>docid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="facilitypicklist">
+      <DataType>String</DataType>
+      <Prompt>Select A Facility</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>facilitypicklist</DataSetName>
+          <ValueField>facilityid</ValueField>
+          <LabelField>facname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="processstatus">
+      <DataType>String</DataType>
+      <Prompt>Select One or More Process Statuses</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>processstatus</DataSetName>
+          <ValueField>process_status</ValueField>
+          <LabelField>process_status</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="providertype">
+      <DataType>String</DataType>
+      <Prompt>Select One or More Provider Types</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>providertype</DataSetName>
+          <ValueField>psprvdrtype</ValueField>
+          <LabelField>psprvdrtype</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="providerpicklist">
+      <DataType>String</DataType>
+      <Prompt>Select One or More Providers</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>providerpicklist</DataSetName>
+          <ValueField>docid</ValueField>
+          <LabelField>providerfullname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>5b865168-e962-4aaa-a5bd-bf4f21128607</rd:ReportID>
+</Report>

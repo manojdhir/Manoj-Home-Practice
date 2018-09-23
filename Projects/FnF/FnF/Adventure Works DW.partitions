@@ -1,0 +1,772 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5e2feb4a-679f-4889-b063-c8ef09f316da" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Adventure Works DW</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Internet Sales</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ca827956-d2e6-4269-9eca-fa527ab13e1e">
+          <ID>SalesAmount greater then 500</ID>
+          <Name>SalesAmount greater then 500</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="128c24a0-46f1-47aa-a310-9d5e5a297a9b">
+            <DataSourceID>Adventure Works DW</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[OrderDateKey],[dbo].[FactInternetSales].[DueDateKey],[dbo].[FactInternetSales].[ShipDateKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber]
+		FROM [dbo].[FactInternetSales]
+		WHERE SalesAmount &gt; 500</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="ec57c044-c96b-4c98-93d3-2b685654d7bc">
+          <ID>SalesAmount less than 500</ID>
+          <Name>SalesAmount less than 500</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="7f5750bf-18fe-460e-a9a1-8c17ed360021">
+            <DataSourceID>Adventure Works DW</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[OrderDateKey],[dbo].[FactInternetSales].[DueDateKey],[dbo].[FactInternetSales].[ShipDateKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber]
+		FROM [dbo].[FactInternetSales]
+		WHERE SalesAmount &lt; 500</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+        <Partition dwd:design-time-name="95053e2e-cb17-43a8-89f8-60b5d275613a">
+          <ID>SalesAmount equal to 500</ID>
+          <Name>SalesAmount equal to 500</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="QueryBinding" dwd:design-time-name="6331584d-c4b2-49ac-ac2f-e09fdba0b6ab">
+            <DataSourceID>Adventure Works DW</DataSourceID>
+            <QueryDefinition>SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[OrderDateKey],[dbo].[FactInternetSales].[DueDateKey],[dbo].[FactInternetSales].[ShipDateKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber]
+		FROM [dbo].[FactInternetSales]
+		WHERE SalesAmount = 500</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+      <AggregationDesigns>
+        <AggregationDesign>
+          <ID>Dim Tables</ID>
+          <Name>Dim Tables</Name>
+          <CreatedTimestamp>2017-07-15T08:05:17.056667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2017-07-15T08:05:17.056667Z</LastSchemaUpdate>
+          <EstimatedRows>15205</EstimatedRows>
+          <Dimensions>
+            <Dimension>
+              <CubeDimensionID>Promotion</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Promotion Key</AttributeID>
+                  <EstimatedCount>16</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Promotion Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Promotion Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Promotion Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Promotion Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Discount Pct</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Promotion Type</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Promotion Type</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Promotion Type</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Promotion Category</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Promotion Category</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Promotion Category</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Start Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>End Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Min Qty</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Max Qty</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Customer</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Customer Key</AttributeID>
+                  <EstimatedCount>18484</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Geography Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Title</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>First Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Middle Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Last Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Name Style</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Birth Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Marital Status</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Suffix</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Gender</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Email Address</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Yearly Income</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Total Children</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Number Children At Home</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Education</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Education</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Education</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Occupation</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Occupation</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Occupation</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>House Owner Flag</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Number Cars Owned</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Address Line1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Address Line2</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Phone</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Date First Purchase</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Commute Distance</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Order Date</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Time Key</AttributeID>
+                  <EstimatedCount>1158</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Full Date Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Week Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Month Name</AttributeID>
+                  <EstimatedCount>38</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Month Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Month Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Quarter</AttributeID>
+                  <EstimatedCount>13</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Year</AttributeID>
+                  <EstimatedCount>4</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Semester</AttributeID>
+                  <EstimatedCount>7</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Semester</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Product</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Product Key</AttributeID>
+                  <EstimatedCount>606</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Weight Unit Measure Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Size Unit Measure Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Product Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Product Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Product Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Standard Cost</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Finished Goods Flag</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Color</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Safety Stock Level</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Reorder Point</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>List Price</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Size</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Size Range</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Weight</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Days To Manufacture</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Line</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dealer Price</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Class</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Style</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Model Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Large Photo</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Chinese Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Arabic Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Hebrew Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Thai Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Start Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>End Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Status</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Subcategory Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Subcategory Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Product Subcategory Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Product Subcategory Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Product Subcategory Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Category Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Category Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Product Category Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Product Category Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Product Category Name</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Ship Date</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Time Key</AttributeID>
+                  <EstimatedCount>1158</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Full Date Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Week Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Month Name</AttributeID>
+                  <EstimatedCount>38</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Month Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Month Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Quarter</AttributeID>
+                  <EstimatedCount>13</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Year</AttributeID>
+                  <EstimatedCount>4</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Semester</AttributeID>
+                  <EstimatedCount>7</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Semester</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Due Date</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Time Key</AttributeID>
+                  <EstimatedCount>1158</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Full Date Alternate Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Day Name Of Week</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Week Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>English Month Name</AttributeID>
+                  <EstimatedCount>38</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Spanish Month Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>French Month Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month Number Of Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Quarter</AttributeID>
+                  <EstimatedCount>13</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Year</AttributeID>
+                  <EstimatedCount>4</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Calendar Semester</AttributeID>
+                  <EstimatedCount>7</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Fiscal Semester</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <Aggregations>
+            <Aggregation>
+              <ID>Aggregation 0</ID>
+              <Name>Aggregation 0</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Promotion</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Order Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Semester</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Ship Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Semester</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Due Date</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1</ID>
+              <Name>Aggregation 1</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Promotion</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Order Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Semester</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Ship Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Due Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Semester</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2</ID>
+              <Name>Aggregation 2</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Promotion</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Order Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Ship Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Semester</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Due Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Semester</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3</ID>
+              <Name>Aggregation 3</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Promotion</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Order Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Ship Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Quarter</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Due Date</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 4</ID>
+              <Name>Aggregation 4</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Promotion</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Order Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Quarter</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Ship Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Due Date</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 5</ID>
+              <Name>Aggregation 5</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Promotion</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Order Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Ship Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Due Date</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Calendar Quarter</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 6</ID>
+              <Name>Aggregation 6</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Promotion</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Promotion Key</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Order Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Ship Date</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Due Date</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+          </Aggregations>
+        </AggregationDesign>
+      </AggregationDesigns>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

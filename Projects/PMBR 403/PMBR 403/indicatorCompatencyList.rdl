@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="matrix1">
+        <TablixCorner>
+          <TablixCornerRows>
+            <TablixCornerRow>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox1">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Competencies</Value>
+                            <Style>
+                              <FontSize>9pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox1</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>Silver</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+            </TablixCornerRow>
+          </TablixCornerRows>
+        </TablixCorner>
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.83854in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="IndicatorName">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF((IsNothing(Fields!IndicatorName.Value) or Fields!IndicatorName.Value=""),"N/A",Fields!IndicatorName.Value)</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>IndicatorName</rd:DefaultName>
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                  <DataElementOutput>Output</DataElementOutput>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.21in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=CountDistinct(Fields!case_no.Value)</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=IIF((CountDistinct(Fields!case_no.Value)&gt;0),
+IIF((IsNothing(Fields!Threshold.Value) or Fields!Threshold.Value="") ," Of X"," Of "+Fields!Threshold.Value),"")</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                  <DataElementOutput>Output</DataElementOutput>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Item">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Item.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!Item.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixHeader>
+                <Size>0.25in</Size>
+                <CellContents>
+                  <Textbox Name="Item">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!comp.Value</Value>
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Item</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>Silver</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="reasonforreferral">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!IndicatorName.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!IndicatorName.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="DepartmentName">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!DepartmentName.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!DepartmentName.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>2.12499in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox13">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Indicators</Value>
+                                <Style>
+                                  <FontSize>9pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox13</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>Silver</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <FixedData>true</FixedData>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="matrix1_RowGroup1">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!DepartmentName.Value</GroupExpression>
+                      <GroupExpression>=Fields!fullName.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <TablixHeader>
+                    <Size>2.12499in</Size>
+                    <CellContents>
+                      <Textbox Name="DepartmentName_1">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!fullName.Value</Value>
+                                <Style>
+                                  <FontSize>9pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>DepartmentName_1</rd:DefaultName>
+                        <ZIndex>2</ZIndex>
+                        <Style>
+                          <Border>
+                            <Style>Solid</Style>
+                          </Border>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <DataElementOutput>Output</DataElementOutput>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
+        <DataSetName>QulityIndicator</DataSetName>
+        <Top>0.02in</Top>
+        <Height>0.71in</Height>
+        <Width>3.96353in</Width>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>0.98in</Height>
+    <Style />
+  </Body>
+  <Width>3.96353in</Width>
+  <Page>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.25in</TopMargin>
+    <BottomMargin>0.25in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="QualityIndicatorCon">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=khan;Initial Catalog=peer</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>bd67c2d7-2288-43e0-887a-4758ab8f7f24</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="QulityIndicator">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referralindicator">
+            <Value>=Parameters!referralindicator.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@startdate">
+            <Value>=Parameters!startdate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@enddate">
+            <Value>=Parameters!enddate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@status">
+            <Value>=Parameters!status.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referraltype">
+            <Value>=Parameters!referraltype.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referralcategory">
+            <Value>=Parameters!referralcategory.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT fcj.facilityid, f.facilityname, fcj.case_no, cd.med_rec_id, cd.admissions_no, pad.Admit_Date, pad.Discharge_Date, w.Description, d.DepartmentName, CI.Threshold, CI.Threshold2, CI.JC_Core, x.Item, comp=case x.item when 1 then 'Patient Care' when 2 then 'Medical/Clinical Knowledge' when 3 then 'Practice-Based Learning &amp; Improvement' when 4 then 'Interpersonal &amp; Communication Skills' when 5 then 'Professionalism' when 6 then 'Systems-Based Practice' else 'N/A' end,
+		ct.CaseTypeName, cc.CategoryName, ci.IndicatorName, pp.last_name, pp.first_name, pp.middle_name, pp.degree, isnull(pp.last_name+', ','')+isnull(pp.first_name+' ','')+isnull(pp.middle_name+' ','')+isnull(pp.degree,'') as fullName, cd.active_status, cd.provider_no ,ss.StatuteText, d.PR_DepartmentID
+,isnull(ci.pr_CaseIndicatorId,0)
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no 
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			left JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			left JOIN dbo.PR_CaseTypes ct ON ct.facilityid = fcj.facilityid
+				AND ct.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+			left JOIN dbo.PR_CaseCategories cc ON cc.facilityid = fcj.facilityid
+				AND cc.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				AND cc.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+			left JOIN dbo.PR_CaseIndicators ci ON ci.facilityid = fcj.facilityid
+				AND ci.pr_casetypeid = rfrcj.PR_CaseTypeID
+				AND ci.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+				AND ci.PR_CaseIndicatorID = rfrcj.PR_CaseIndicatorID
+                                                LEFT JOIN pr_providerprofile_reporting pp on pp.facilityid = fcj.facilityid
+                                                                AND pp.pr_providerid = cd.provider_no
+			LEFT JOIN eprmr.dbo.MR_Patient_Detail pd ON pd.FacilityID = fcj.facilityid
+				AND pd.med_rec_id = cd.med_rec_id
+			LEFT JOIN eprmr.dbo.MR_Patient_Admission_Detail pad ON pad.FacilityID = fcj.facilityid	
+				AND pad.med_rec_id = cd.med_rec_id
+				AND pad.admissions_no = cd.admissions_no
+				
+left join peer.dbo.pr_statestatute ss on ss.facilityid = fcj.facilityid	
+cross apply (select * from dbo.Split(isnull(CI.JC_Core,0),',') ) x
+	--where fcj.case_no in (@case_no)	
+	WHERE	fcj.facilityid =@facilitypicklist and isnull(cd.pr_departmentid,0) = @department and isnull(rfrcj.pr_caseindicatorid,0) in (select Item from [Split](@referralindicator,','))  and (cd.incident_date  between  (@startdate) and (@enddate) ) and cd.active_status in (select Item from [Split](@status,',')) 
+ and isnull(rfrcj.pr_casetypeid,0) in (select Item from [Split](@referraltype,',')) and isnull(rfrcj.pr_casecategoryid,0) in (select Item from [Split](@referralcategory,','))
+order by d.departmentname, ct.casetypename, cc.categoryname, ci.indicatorname, pp.last_name, pp.first_name,  x.Item</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="reasonforreferral">
+          <Value>=IIF(isnothing(Fields!CaseTypeName.Value),"",Fields!CaseTypeName.Value + ":  " + Fields!CategoryName.Value + ", " + Fields!IndicatorName.Value)</Value>
+        </Field>
+        <Field Name="facilityname">
+          <DataField>facilityname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="case_no">
+          <DataField>case_no</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="med_rec_id">
+          <DataField>med_rec_id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="admissions_no">
+          <DataField>admissions_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Admit_Date">
+          <DataField>Admit_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Discharge_Date">
+          <DataField>Discharge_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Threshold">
+          <DataField>Threshold</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CaseTypeName">
+          <DataField>CaseTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Item">
+          <DataField>Item</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Threshold2">
+          <DataField>Threshold2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="comp">
+          <DataField>comp</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CategoryName">
+          <DataField>CategoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JC_Core">
+          <DataField>JC_Core</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IndicatorName">
+          <DataField>IndicatorName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="middle_name">
+          <DataField>middle_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="degree">
+          <DataField>degree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fullName">
+          <DataField>fullName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="active_status">
+          <DataField>active_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="provider_no">
+          <DataField>provider_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StatuteText">
+          <DataField>StatuteText</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PR_DepartmentID">
+          <DataField>PR_DepartmentID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID">
+          <DataField />
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="facilitypicklist">
+      <DataType>String</DataType>
+      <Prompt>facilitypicklist</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="department">
+      <DataType>String</DataType>
+      <Prompt>department</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="referraltype">
+      <DataType>String</DataType>
+      <Prompt>referraltype</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="referralcategory">
+      <DataType>String</DataType>
+      <Prompt>referralcategory</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="referralindicator">
+      <DataType>String</DataType>
+      <Prompt>referralindicator</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="startdate">
+      <DataType>DateTime</DataType>
+      <Prompt>startdate</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enddate">
+      <DataType>DateTime</DataType>
+      <Prompt>enddate</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="status">
+      <DataType>String</DataType>
+      <Prompt>status</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>6989f23f-20a8-48ab-ae27-4b329f11ff71</rd:ReportID>
+</Report>

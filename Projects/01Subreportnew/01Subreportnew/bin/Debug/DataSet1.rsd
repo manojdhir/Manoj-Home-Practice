@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>SSRS</DataSourceReference>
+      <CommandText>SELECT        [Invoice Amount], [Stock Description], [Quantity on Hand: New], [Average Cost: New], [Purchase Price per Unit], [Price Variance %], [Transaction Type], [Supplier Name]
+FROM            SSRS</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Invoice_Amount">
+        <DataField>Invoice Amount</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="Stock_Description">
+        <DataField>Stock Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Quantity_on_Hand__New">
+        <DataField>Quantity on Hand: New</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="Average_Cost__New">
+        <DataField>Average Cost: New</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="Purchase_Price_per_Unit">
+        <DataField>Purchase Price per Unit</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="Price_Variance__">
+        <DataField>Price Variance %</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="Transaction_Type">
+        <DataField>Transaction Type</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Supplier_Name">
+        <DataField>Supplier Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

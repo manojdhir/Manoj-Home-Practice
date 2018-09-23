@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="List1_Contents">
+        <ReportItems>
+          <Tablix Name="matrix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>8.5in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox42">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!DepartmentName.Value</Value>
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox42</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.21in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Subreport Name="Subreport1">
+                          <ReportName>indicatorList</ReportName>
+                          <Parameters>
+                            <Parameter Name="facilitypicklist">
+                              <Value>=Fields!facilityid.Value</Value>
+                            </Parameter>
+                            <Parameter Name="department">
+                              <Value>=Fields!PR_DepartmentID.Value</Value>
+                            </Parameter>
+                            <Parameter Name="status">
+                              <Value>@status</Value>
+                            </Parameter>
+                          </Parameters>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Subreport>
+                      </CellContents>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="DepartmentName1">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!DepartmentName.Value</GroupExpression>
+                    </GroupExpressions>
+                    <PageBreak>
+                      <BreakLocation>Between</BreakLocation>
+                    </PageBreak>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!DepartmentName.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember>
+                      <FixedData>true</FixedData>
+                      <KeepTogether>true</KeepTogether>
+                    </TablixMember>
+                    <TablixMember>
+                      <FixedData>true</FixedData>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+            <DataSetName>QulityIndicator</DataSetName>
+            <Top>0.02458in</Top>
+            <Height>0.46in</Height>
+            <Width>8.5in</Width>
+            <Style>
+              <FontSize>8pt</FontSize>
+              <FontWeight>Bold</FontWeight>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.22042in</Top>
+        <Height>0.995in</Height>
+        <Width>8.5in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>1.21542in</Height>
+    <Style />
+  </Body>
+  <Width>8.5in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.455in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Quality Indicators By Department By Provider</Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                    <Color>#000000</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!facilityname.Value, "QulityIndicator")</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox1</rd:DefaultName>
+          <Height>0.455in</Height>
+          <Width>8.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.30208in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="textbox10">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Page " &amp; Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox10</rd:DefaultName>
+          <Left>7.04167in</Left>
+          <Height>0.25in</Height>
+          <Width>1.45833in</Width>
+          <Style>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="textbox9">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Report Date:  " + Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox9</rd:DefaultName>
+          <Height>0.25in</Height>
+          <Width>3.48958in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="StatuteText1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!StatuteText.Value, "QulityIndicator")</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>StatuteText1</rd:DefaultName>
+          <Top>0.375in</Top>
+          <Height>0.92708in</Height>
+          <Width>8.5in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>0.7in</LeftMargin>
+    <RightMargin>0.7in</RightMargin>
+    <TopMargin>0.7in</TopMargin>
+    <BottomMargin>0.7in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="QualityIndicatorCon">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=khan;Initial Catalog=PEER</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>6556f522-1d0c-45eb-8d34-4a95db04835d</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="pr_userid">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <CommandText>select pr_userid
+from pr_userfacjoin
+group by pr_userid
+order by pr_userid</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="pr_userid">
+          <DataField>pr_userid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="facilitypicklist">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@pr_userid">
+            <Value>=Parameters!pr_userid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select DISTINCT ufj.facilityid, f.facilityname
+from pr_userfacjoin ufj
+             join pr_facilities f on f.facilityid = ufj.facilityid
+where ufj.pr_userid = (@pr_userid)</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="facilityname">
+          <DataField>facilityname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="referralindicator">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT 	rfrcj.pr_caseindicatorid, ci.indicatorname
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			JOIN dbo.PR_caseindicators ci ON ci.facilityid = fcj.facilityid
+				AND ci.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				AND ci.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+                                                                and ci.pr_caseindicatorid = rfrcj.pr_caseindicatorid
+				
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department) 
+union all 
+select 0, 'N/A'</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="pr_caseindicatorid">
+          <DataField>pr_caseindicatorid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="indicatorname">
+          <DataField>indicatorname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="status">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT  Distinct cd.active_status
+
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+
+where fcj.facilityid in (@facilitypicklist)and cd.active_status &lt;&gt; 'killed' and cd.active_status &lt;&gt; 'inactive'
+order by cd.active_status</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="active_status">
+          <DataField>active_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="department">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT cd.pr_departmentid, d.DepartmentName
+
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+				
+				
+WHERE	fcj.facilityid in (@facilitypicklist)
+union all 
+select 0, 'N/A'
+order by d.departmentname</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="pr_departmentid">
+          <DataField>pr_departmentid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="QulityIndicator">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referralindicator">
+            <Value>=Parameters!referralindicator.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@startdate">
+            <Value>=Parameters!startdate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@enddate">
+            <Value>=Parameters!enddate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referraltype">
+            <Value>=Parameters!referraltype.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@status">
+            <Value>=Parameters!status.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referralcategory">
+            <Value>=Parameters!referralcategory.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT fcj.facilityid, f.facilityname, fcj.case_no, cd.med_rec_id, cd.admissions_no, pad.Admit_Date, pad.Discharge_Date, w.Description, d.DepartmentName,
+		ct.CaseTypeName, cc.CategoryName, ci.IndicatorName, pp.last_name, pp.first_name, pp.middle_name, pp.degree, isnull(pp.last_name+', ','')+isnull(pp.first_name+' ','')+isnull(pp.middle_name+' ','')+isnull(pp.degree,'') as fullName, cd.active_status, cd.provider_no ,ss.StatuteText, d.PR_DepartmentID
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID /*and  cd.active_status ='Active' and cd.pr_workgroupid = 101*/
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			left JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			left JOIN dbo.PR_CaseTypes ct ON ct.facilityid = fcj.facilityid
+				AND ct.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+			left JOIN dbo.PR_CaseCategories cc ON cc.facilityid = fcj.facilityid
+				AND cc.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				AND cc.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+			left JOIN dbo.PR_CaseIndicators ci ON ci.facilityid = fcj.facilityid
+				AND ci.pr_casetypeid = rfrcj.PR_CaseTypeID
+				AND ci.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+				AND ci.PR_CaseIndicatorID = rfrcj.PR_CaseIndicatorID
+                                                LEFT JOIN pr_providerprofile_reporting pp on pp.facilityid = fcj.facilityid
+                                                                AND pp.pr_providerid = cd.provider_no
+			LEFT JOIN eprmr.dbo.MR_Patient_Detail pd ON pd.FacilityID = fcj.facilityid
+				AND pd.med_rec_id = cd.med_rec_id
+			LEFT JOIN eprmr.dbo.MR_Patient_Admission_Detail pad ON pad.FacilityID = fcj.facilityid	
+				AND pad.med_rec_id = cd.med_rec_id
+				AND pad.admissions_no = cd.admissions_no
+left join peer.dbo.pr_statestatute ss on ss.facilityid = fcj.facilityid				
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department) and isnull(rfrcj.pr_caseindicatorid,0) in (@referralindicator) and (cd.incident_date  between  (@startdate) and (@enddate) )  and 
+cd.active_status in (@status) 
+and isnull(rfrcj.pr_casetypeid,0) in (@referraltype) and isnull(rfrcj.pr_casecategoryid,0) in (@referralcategory)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="facilityid">
+          <DataField>facilityid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="facilityname">
+          <DataField>facilityname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="case_no">
+          <DataField>case_no</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="med_rec_id">
+          <DataField>med_rec_id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="admissions_no">
+          <DataField>admissions_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Admit_Date">
+          <DataField>Admit_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Discharge_Date">
+          <DataField>Discharge_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CaseTypeName">
+          <DataField>CaseTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CategoryName">
+          <DataField>CategoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IndicatorName">
+          <DataField>IndicatorName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="middle_name">
+          <DataField>middle_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="degree">
+          <DataField>degree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fullName">
+          <DataField>fullName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="active_status">
+          <DataField>active_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="provider_no">
+          <DataField>provider_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StatuteText">
+          <DataField>StatuteText</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PR_DepartmentID">
+          <DataField>PR_DepartmentID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="reasonforreferral">
+          <Value>=Fields!CaseTypeName.Value + ":  " + Fields!CategoryName.Value + ", " + Fields!IndicatorName.Value</Value>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="referraltype">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>
+SELECT DISTINCT 	rfrcj.pr_casetypeid, ct.CaseTypeName
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			JOIN dbo.PR_CaseTypes ct ON ct.facilityid = fcj.facilityid
+				AND ct.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department)
+union all 
+select 0, 'N/A'</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="pr_casetypeid">
+          <DataField>pr_casetypeid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CaseTypeName">
+          <DataField>CaseTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="referralcategory">
+      <Query>
+        <DataSourceName>QualityIndicatorCon</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@facilitypicklist">
+            <Value>=Parameters!facilitypicklist.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@department">
+            <Value>=Parameters!department.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@referraltype">
+            <Value>=Parameters!referraltype.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>
+SELECT DISTINCT 	rfrcj.pr_casecategoryid, cc.CategoryName
+
+
+FROM	pr_faccasejoin fcj
+			JOIN pr_facilities f ON f.facilityid = fcj.facilityid
+			JOIN pr_case_detail cd ON cd.facilityid = fcj.facilityid
+				AND cd.case_no = fcj.case_no
+			JOIN dbo.PR_WorkGroup w ON w.facilityid = fcj.facilityid
+				AND w.PR_WorkgroupID  = cd.PR_WorkgroupID
+			JOIN dbo.PR_Departments d ON d.facilityid = fcj.facilityid
+				AND d.PR_DepartmentID = cd.PR_DepartmentID
+			JOIN dbo.PR_ReasonForReviewCaseJoin rfrcj ON rfrcj.case_no = fcj.case_no
+			JOIN dbo.PR_CaseCategories cc ON cc.facilityid = fcj.facilityid
+				AND cc.PR_CaseTypeID = rfrcj.PR_CaseTypeID
+				AND cc.PR_CaseCategoryID = rfrcj.PR_CaseCategoryID
+				
+				
+WHERE	fcj.facilityid in (@facilitypicklist) and cd.pr_departmentid in (@department) and rfrcj.pr_casetypeid in (@referraltype)
+union all
+select 0,'N/A'</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="pr_casecategoryid">
+          <DataField>pr_casecategoryid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CategoryName">
+          <DataField>CategoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="pr_userid">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2238</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>pr userid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="facilitypicklist">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Facilities</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>facilitypicklist</DataSetName>
+          <ValueField>facilityid</ValueField>
+          <LabelField>facilityname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="department">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Departments</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>department</DataSetName>
+          <ValueField>pr_departmentid</ValueField>
+          <LabelField>DepartmentName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="referraltype">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Types</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>referraltype</DataSetName>
+          <ValueField>pr_casetypeid</ValueField>
+          <LabelField>CaseTypeName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="referralcategory">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Category</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>referralcategory</DataSetName>
+          <ValueField>pr_casecategoryid</ValueField>
+          <LabelField>CategoryName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="referralindicator">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Quality Indicators</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>referralindicator</DataSetName>
+          <ValueField>pr_caseindicatorid</ValueField>
+          <LabelField>indicatorname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="startdate">
+      <DataType>DateTime</DataType>
+      <Prompt>Select or Enter Beginning Occurrence Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enddate">
+      <DataType>DateTime</DataType>
+      <Prompt>Select or Enter Ending Occurrence Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="status">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Select One or More Statuses</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>status</DataSetName>
+          <ValueField>active_status</ValueField>
+          <LabelField>active_status</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>c0e94944-04cc-485c-805a-5946137b64a6</rd:ReportID>
+</Report>

@@ -1,0 +1,1599 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="MANOJ-PC\Manoj"
+  DTS:CreatorComputerName="MANOJ-PC"
+  DTS:CreationDate="9/12/2017 1:25:59 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{0DE1A659-BD00-4C30-B520-1766C063A6E2}"
+  DTS:EnableConfig="True"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Ration"
+  DTS:DTSID="{BF9C97F7-2097-4953-ADE8-65AD57886A54}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:ObjectName="Excel Connection Manager"
+      DTS:DTSID="{281AD1B7-374D-4602-9D74-2FE498BC7862}"
+      DTS:CreationName="EXCEL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Ration\Ration.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+      DTS:ObjectName="MANOJ-PC.Housholds"
+      DTS:DTSID="{19D6F062-E498-47F3-B1A4-26B4E6AB20B5}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANOJ-PC;Initial Catalog=Housholds;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANOJ-PC.Housholds 1]"
+      DTS:ObjectName="MANOJ-PC.Housholds 1"
+      DTS:DTSID="{2B501270-ED21-4B15-BEE8-AB4C704F3F64}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANOJ-PC;Initial Catalog=Housholds;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANOJ-PC.Housholds 2]"
+      DTS:ObjectName="MANOJ-PC.Housholds 2"
+      DTS:DTSID="{FFEC2611-FEEC-449A-8D0C-528889B7CD55}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANOJ-PC;Initial Catalog=Housholds;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationType="1"
+      DTS:ConfigurationString="C:\Users\Manoj\Documents\Visual Studio 2010\Projects\SSIS Packages for practice\SSIS Packages for practice\Ration.dtsConfig"
+      DTS:ObjectName="Configuration 1"
+      DTS:DTSID="{BFD9B10C-6283-4D7F-B761-4CC6CE863161}"
+      DTS:CreationName="" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="Var_FilePath"
+      DTS:DTSID="{4A4FFF89-96C2-4DFA-9811-6025F4A4FADC}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Manoj Dhir Dell Laptop\Backup\Ration\Ration.xls</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="Var_Tabname"
+      DTS:DTSID="{A4F083DC-DCF1-43AD-9A91-062BB9D82739}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8">Ration</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="Var_TabRationBackup"
+      DTS:DTSID="{F7D08C42-F8BB-4766-B8C3-812E72CF7A86}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8">Rationbackup</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Ration"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Ration"
+      DTS:DTSID="{818A3F1D-2995-4F22-8676-B1BE7DE52632}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Ration\Data Conversion"
+              name="Data Conversion"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              description="Data Conversion"
+              usesDispositions="true"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Load Ration\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Ration\Data Conversion.Inputs[Data Conversion Input].Columns[ItemsPurchased]"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[ItemsPurchased]"
+                      cachedName="ItemsPurchased"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\Load Ration\Data Conversion.Inputs[Data Conversion Input].Columns[Comment]"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Comment]"
+                      cachedName="Comment"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output]"
+                  name="Data Conversion Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load Ration\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ItemsPurchased]"
+                      name="Copy of ItemsPurchased"
+                      lineageId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ItemsPurchased]"
+                      length="255"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[ItemsPurchased]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Comment]"
+                      name="Copy of Comment"
+                      lineageId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Comment]"
+                      length="255"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Comment]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Error Output]"
+                  name="Data Conversion Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load Ration\Data Conversion.Inputs[Data Conversion Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Ration\Excel Source"
+              name="Excel Source"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              description="Excel Source"
+              usesDispositions="true"
+              version="1"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">Sheet3$</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Ration\Excel Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[ItemsPurchased]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[ItemsPurchased]" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[Quantity]" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[PurchaseDate]"
+                      name="PurchaseDate"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[PurchaseDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[PurchaseDate]" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Amount]"
+                      name="Amount"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[Amount]" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[TotalAmount]"
+                      name="TotalAmount"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[TotalAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[TotalAmount]" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Comment]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[Comment]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[PurchaseDate]"
+                      name="PurchaseDate"
+                      dataType="date" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[Amount]"
+                      name="Amount"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[TotalAmount]"
+                      name="TotalAmount"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].ExternalColumns[F7]"
+                      name="F7"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output]"
+                  name="Excel Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[ItemsPurchased]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[Quantity]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[PurchaseDate]"
+                      name="PurchaseDate"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[PurchaseDate]"
+                      dataType="date" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[Amount]"
+                      name="Amount"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[Amount]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[TotalAmount]"
+                      name="TotalAmount"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[TotalAmount]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[Comment]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Ration\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Ration]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset.">User::Var_Tabname</property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">1</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."></property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Ration\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseDate]"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[PurchaseDate]"
+                      externalMetadataColumnId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      cachedName="PurchaseDate"
+                      cachedDataType="date" />
+                    <inputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Quantity]"
+                      externalMetadataColumnId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      cachedName="Quantity"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[Amount]"
+                      externalMetadataColumnId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      cachedName="Amount"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalAmount]"
+                      lineageId="Package\Load Ration\Excel Source.Outputs[Excel Source Output].Columns[TotalAmount]"
+                      externalMetadataColumnId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
+                      cachedName="TotalAmount"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ItemsPurchased]"
+                      lineageId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ItemsPurchased]"
+                      externalMetadataColumnId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemsPurchased]"
+                      cachedName="Copy of ItemsPurchased"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Comment]"
+                      lineageId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Comment]"
+                      externalMetadataColumnId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      cachedName="Copy of Comment"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      name="PurchaseDate"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      dataType="str"
+                      length="500"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      name="Amount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
+                      name="TotalAmount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="str"
+                      length="500"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rationid]"
+                      name="Rationid"
+                      dataType="i4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Ration\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load Ration\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Ration\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load Ration\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Ration.Paths[Data Conversion Output]"
+              name="Data Conversion Output"
+              startId="Package\Load Ration\Data Conversion.Outputs[Data Conversion Output]"
+              endId="Package\Load Ration\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Load Ration.Paths[Excel Source Output]"
+              name="Excel Source Output"
+              startId="Package\Load Ration\Excel Source.Outputs[Excel Source Output]"
+              endId="Package\Load Ration\Data Conversion.Inputs[Data Conversion Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load RationBackup"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load RationBackup"
+      DTS:DTSID="{EB8CA36E-944D-4174-88BC-3C7559909F48}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load RationBackup\Lookup"
+              name="Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              usesDispositions="true"
+              version="6"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">select * from [dbo].[Rationbackup]</property>
+                <property
+                  name="SqlCommandParam"
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">select * from (select * from [dbo].[Rationbackup]) [refTable]
+where [refTable].[PurchaseDate] = ?</property>
+                <property
+                  name="ConnectionType"
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  name="CacheType"
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  typeConverter="CacheType">1</property>
+                <property
+                  name="NoMatchBehavior"
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  name="NoMatchCachePercentage"
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset.">0</property>
+                <property
+                  name="MaxMemoryUsage"
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform.">25</property>
+                <property
+                  name="MaxMemoryUsage64"
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform.">25</property>
+                <property
+                  name="ReferenceMetadataXml"
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PurchaseDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ItemsPurchased" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Quantity" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Amount" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TotalAmount" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Comment" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Rationid" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  name="ParameterMap"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  containsID="true">#{Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]};</property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="TreatDuplicateKeysAsError"
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used.">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load RationBackup\Lookup.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="Connection manager used to access lookup data."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load RationBackup\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load RationBackup\Lookup.Inputs[Lookup Input].Columns[PurchaseDate]"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      cachedName="PurchaseDate"
+                      cachedDataType="dbDate">
+                      <properties>
+                        <property
+                          name="JoinToReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins.">PurchaseDate</property>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied." />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output]"
+                  name="Lookup Match Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load RationBackup\Lookup.Inputs[Lookup Input]"
+                  errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[PurchaseDate]"
+                      name="PurchaseDate"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[PurchaseDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">PurchaseDate</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[Comment]"
+                      length="500"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Comment</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[TotalAmount]"
+                      name="TotalAmount"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[TotalAmount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">TotalAmount</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[Amount]"
+                      name="Amount"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Amount</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Quantity</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Match Output].Columns[ItemsPurchased]"
+                      length="500"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ItemsPurchased</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load RationBackup\Lookup.Outputs[Lookup No Match Output]"
+                  name="Lookup No Match Output"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load RationBackup\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load RationBackup\Lookup.Outputs[Lookup Error Output]"
+                  name="Lookup Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load RationBackup\Lookup.Inputs[Lookup Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load RationBackup\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load RationBackup\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Rationbackup]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset.">User::Var_TabRationBackup</property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load RationBackup\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseDate]"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      cachedName="PurchaseDate"
+                      cachedDataType="dbDate" />
+                    <inputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ItemsPurchased]"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemsPurchased]"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemsPurchased]"
+                      cachedName="ItemsPurchased"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      cachedName="Quantity"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      cachedName="Amount"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalAmount]"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalAmount]"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
+                      cachedName="TotalAmount"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comment]"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      cachedName="Comment"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseDate]"
+                      name="PurchaseDate"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      dataType="str"
+                      length="500"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      name="Amount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
+                      name="TotalAmount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="str"
+                      length="500"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rationid]"
+                      name="Rationid"
+                      dataType="i4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load RationBackup\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load RationBackup\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load RationBackup\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load RationBackup\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Ration]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load RationBackup\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[MANOJ-PC.Housholds]"
+                  connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.Housholds]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      name="PurchaseDate"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseDate]" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[ItemsPurchased]"
+                      length="500"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemsPurchased]" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalAmount]"
+                      name="TotalAmount"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalAmount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalAmount]" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      length="500"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rationid]"
+                      name="Rationid"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rationid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Rationid]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseDate]"
+                      name="PurchaseDate"
+                      dataType="dbDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      dataType="str"
+                      length="500"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      name="Amount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalAmount]"
+                      name="TotalAmount"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="str"
+                      length="500"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Rationid]"
+                      name="Rationid"
+                      dataType="i4" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseDate]"
+                      name="PurchaseDate"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseDate]"
+                      dataType="dbDate" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemsPurchased]"
+                      name="ItemsPurchased"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ItemsPurchased]"
+                      length="500"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalAmount]"
+                      name="TotalAmount"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalAmount]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      length="500"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Rationid]"
+                      name="Rationid"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Rationid]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load RationBackup.Paths[Lookup No Match Output]"
+              name="Lookup No Match Output"
+              startId="Package\Load RationBackup\Lookup.Outputs[Lookup No Match Output]"
+              endId="Package\Load RationBackup\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Load RationBackup.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Load RationBackup\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\Load RationBackup\Lookup.Inputs[Lookup Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:From="Package\Load Ration"
+      DTS:To="Package\Load RationBackup"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:DTSID="{9DC454EB-16C5-4127-A1D8-651974EE6207}"
+      DTS:CreationName="" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Load Ration"
+          TopLeft="325,50" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Load RationBackup"
+          TopLeft="419,153" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="393,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111,61"
+              Start="0,0"
+              End="111,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="107,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107,30.5"
+                    Point2="111,30.5"
+                    Point3="111,34.5" />
+                  <mssgle:LineSegment
+                    End="111,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Ration">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Load Ration\OLE DB Destination"
+          TopLeft="382,236" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Load Ration\Excel Source"
+          TopLeft="284,59" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Load Ration\Data Conversion"
+          TopLeft="313,138" />
+        <EdgeLayout
+          Id="Package\Load Ration.Paths[Excel Source Output]"
+          TopLeft="354,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.5,37"
+              Start="0,0"
+              End="36.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="32.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5,18.5"
+                    Point2="36.5,18.5"
+                    Point3="36.5,22.5" />
+                  <mssgle:LineSegment
+                    End="36.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Ration.Paths[Data Conversion Output]"
+          TopLeft="390.5,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.5,56"
+              Start="0,0"
+              End="76.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="72.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.5,28"
+                    Point2="76.5,28"
+                    Point3="76.5,32" />
+                  <mssgle:LineSegment
+                    End="76.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Ration\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Ration\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load RationBackup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load RationBackup\OLE DB Destination"
+          TopLeft="437,239" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Load RationBackup\Lookup"
+          TopLeft="318,122" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Load RationBackup\OLE DB Source"
+          TopLeft="159,26" />
+        <EdgeLayout
+          Id="Package\Load RationBackup.Paths[OLE DB Source Output]"
+          TopLeft="234.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="159,54"
+              Start="0,0"
+              End="159,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="155,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="155,27"
+                    Point2="159,27"
+                    Point3="159,31" />
+                  <mssgle:LineSegment
+                    End="159,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load RationBackup.Paths[Lookup No Match Output]"
+          TopLeft="393.5,164">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.5,75"
+              Start="0,0"
+              End="129.5,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="4,37.5" />
+                  <mssgle:LineSegment
+                    End="125.5,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="125.5,37.5"
+                    Point2="129.5,37.5"
+                    Point3="129.5,41.5" />
+                  <mssgle:LineSegment
+                    End="129.5,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.94361328125,42.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load RationBackup\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load RationBackup\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Rationbackup]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load RationBackup\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

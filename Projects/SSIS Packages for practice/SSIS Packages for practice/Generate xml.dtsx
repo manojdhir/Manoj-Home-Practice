@@ -1,0 +1,473 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="MANOJ-PC\Manoj"
+  DTS:CreatorComputerName="MANOJ-PC"
+  DTS:CreationDate="8/31/2017 4:23:04 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{F99FF624-A643-48D6-A3DF-31731FB34716}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Generate xml"
+  DTS:DTSID="{82757266-D5BB-4AA4-9E28-9552B732C71B}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Generate xml]"
+      DTS:ObjectName="Generate xml"
+      DTS:DTSID="{E61AAD8B-0C24-4D85-A743-EFD9438A1618}"
+      DTS:CreationName="FLATFILE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Manoj\Desktop\bin\test2.xml">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Xml Data"
+              DTS:DTSID="{FCE6CFA3-8503-4DF6-B252-3965534C77AD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MANOJ-PC.AdventureWorks2008R2]"
+      DTS:ObjectName="MANOJ-PC.AdventureWorks2008R2"
+      DTS:DTSID="{3E198FD0-8B58-4E9D-949D-F08DB6FB23DD}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MANOJ-PC;Initial Catalog=AdventureWorks2008R2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="Var_xml_out"
+      DTS:DTSID="{817246F9-51D7-45B3-996F-D4EA8C69211B}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container"
+      DTS:DTSID="{FF32C4DF-4CA9-4321-AF19-7E1122FF0A15}"
+      DTS:Description="Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:DTSID="{754055FB-23F0-43B0-A6A9-3554CE6CA054}"
+          DTS:Description="Data Flow Task"
+          DTS:CreationName="SSIS.Pipeline.3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Data Conversion"
+                  name="Data Conversion"
+                  componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+                  description="Data Conversion"
+                  usesDispositions="true"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Data]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data]"
+                          cachedName="Data"
+                          cachedDataType="nText" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      name="Data Conversion Output"
+                      exclusionGroup="1"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Data]"
+                          name="Copy of Data"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Data]"
+                          dataType="text"
+                          codePage="1252"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              name="SourceInputColumnLineageID"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              containsID="true">#{Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data]}</property>
+                            <property
+                              name="FastParse"
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      name="Data Conversion Error Output"
+                      exclusionGroup="1"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      isErrorOut="true">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Flat File Destination"
+                  name="Flat File Destination"
+                  componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+                  <properties>
+                    <property
+                      name="Overwrite"
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file.">true</property>
+                    <property
+                      name="Header"
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify" />
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
+                      name="FlatFileConnection"
+                      connectionManagerID="Package.ConnectionManagers[Generate xml]"
+                      connectionManagerRefId="Package.ConnectionManagers[Generate xml]" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                      name="Flat File Destination Input"
+                      hasSideEffects="true">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[Copy of Data]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Data]"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Xml Data]"
+                          cachedName="Copy of Data"
+                          cachedDataType="text"
+                          cachedCodepage="1252" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Xml Data]"
+                          name="Xml Data"
+                          dataType="str"
+                          length="500"
+                          codePage="1252" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Source"
+                  name="OLE DB Source"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  description="OLE DB Source"
+                  usesDispositions="true"
+                  version="7"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+                  <properties>
+                    <property
+                      name="CommandTimeout"
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                    <property
+                      name="OpenRowset"
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."></property>
+                    <property
+                      name="OpenRowsetVariable"
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                    <property
+                      name="SqlCommand"
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select 
+(select* from Production.TransactionHistory
+for XML Auto,Root('Organisation')) as Data</property>
+                    <property
+                      name="SqlCommandVariable"
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."></property>
+                    <property
+                      name="DefaultCodePage"
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                    <property
+                      name="AlwaysUseDefaultCodePage"
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                    <property
+                      name="AccessMode"
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      name="ParameterMapping"
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      name="OleDbConnection"
+                      description="The OLE DB runtime connection used to access the database."
+                      connectionManagerID="Package.ConnectionManagers[MANOJ-PC.AdventureWorks2008R2]"
+                      connectionManagerRefId="Package.ConnectionManagers[MANOJ-PC.AdventureWorks2008R2]" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data]"
+                          name="Data"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          truncationRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data]" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data]"
+                          name="Data"
+                          dataType="nText" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      name="OLE DB Source Error Output"
+                      isErrorOut="true">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data]"
+                          name="Data"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data]"
+                          dataType="nText" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Data Conversion Output]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  endId="Package\Sequence Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="21,21" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,208"
+          Size="205,252"
+          Id="Package\Sequence Container"
+          TopLeft="94,85" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Source"
+          TopLeft="78,65" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\Data Flow Task\Data Conversion"
+          TopLeft="127,152" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="152.5,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52,45"
+              Start="0,0"
+              End="52,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="48,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48,22.5"
+                    Point2="52,22.5"
+                    Point3="52,26.5" />
+                  <mssgle:LineSegment
+                    End="52,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\Data Flow Task\Flat File Destination"
+          TopLeft="152,236" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="204.5,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33,42"
+              Start="0,0"
+              End="33,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="29,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29,21"
+                    Point2="33,21"
+                    Point3="33,25" />
+                  <mssgle:LineSegment
+                    End="33,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

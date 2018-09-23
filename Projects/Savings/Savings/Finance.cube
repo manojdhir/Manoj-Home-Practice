@@ -1,0 +1,161 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e5a19fe1-2d7d-4f09-b148-23862a4f6416" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Finance</ID>
+  <Name>Finance</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="6c9103b1-4908-4763-97f7-7c82930c311c">
+      <ID>Savings</ID>
+      <Name>Savings</Name>
+      <DimensionID>Savings</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="54bfa378-e0fc-4f91-bbfc-97c686a2df95">
+          <AttributeID>Type Of Policy</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="5973c5f7-4a17-4ed1-bdc4-76c08abf09e8">
+      <ID>Savings</ID>
+      <Name>Savings</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="692c77fe-d96b-4cc6-b270-228c7b533608">
+          <ID>Amount</ID>
+          <Name>Amount</Name>
+          <Source dwd:design-time-name="1f218b25-b776-4a03-a305-deb250461a33">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="00bc7173-fce3-4d79-86c8-e84c7f5c4371">
+              <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+              <ColumnID>Amount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="8eb88603-6314-40c1-ad4e-ce5c1f65bfef">
+          <ID>Maturity Amount</ID>
+          <Name>Maturity Amount</Name>
+          <Source dwd:design-time-name="bb1e73e6-f985-47ec-bc4c-4086c2744f6c">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="997009c7-e705-4334-be30-6fc135d55732">
+              <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+              <ColumnID>Maturity_x0020_Amount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="7d8c5bcf-cb0e-4784-bea9-80a2a374dbf9">
+          <ID>Savings Count</ID>
+          <Name>Savings Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="1c561ea3-6b3f-4872-a824-b3e80b1f6f32">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="b5eb0b6f-bcd1-438e-a091-546e769fe217">
+              <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="349631ad-245e-4150-8c1c-a170abd5220a">
+          <CubeDimensionID>Savings</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="570efcc3-71a5-4a8e-8d48-ec125dcdc817">
+              <AttributeID>Type Of Policy</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b03d1d7f-1fc1-441d-a009-04fc7e294284">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="bdb455a0-5ef1-4218-80ad-e376a434567a">
+                    <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+                    <ColumnID>Type_x0020_of_x0020_Policy_x0020_</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="bc7d98ef-557f-4850-beb3-e4edd9d81017">
+                  <DataType>Double</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9b52c8f8-cbce-4b59-9056-2c815bb21e3c">
+                    <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+                    <ColumnID>Policy_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="d4b74ed0-b253-403d-b54d-f004cee4b5f0">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="daa0ff52-0ba6-4938-8421-68d2bdaa0e4a">
+                    <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+                    <ColumnID>Person_x0020_Name</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="61d780ac-0a95-445c-8550-040261406bd0">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7bcef662-9f8b-4936-8514-2bce06775da2">
+                    <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+                    <ColumnID>Date_x0020_Of_x0020_Creation</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn dwd:design-time-name="08d0e31a-bc55-42cd-a84f-09336327f3c3">
+                  <DataType>WChar</DataType>
+                  <DataSize>255</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="37d89b99-5919-44aa-ad99-dbb738ad9922">
+                    <TableID>dbo__x0027_Savings_x0020__x0024__x0027_</TableID>
+                    <ColumnID>Date_x0020_of_x0020_Maturity</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="8145a251-13f1-41e3-850e-826f7df33819">
+    <DataSourceViewID>Finance</DataSourceViewID>
+  </Source>
+</Cube>
